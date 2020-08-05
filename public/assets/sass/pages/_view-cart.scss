@@ -1,0 +1,265 @@
+.ic-view-cart-area{
+    margin-bottom: 44px;
+        margin-top: 60px;
+}
+
+.ic-cart-item-title {
+    h4 {
+        font-family: 'Assistant', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #333333;
+        text-transform: capitalize;
+        line-height: 42px;
+            margin-bottom: 15px;
+    }
+}
+
+.ic-cart-item {
+    border: 1px solid #E5E5E5;
+    padding: 10px 30px 10px 10px;
+    margin-bottom: 15px;
+    
+    .cart-icon{
+    i{
+        font-size: 20px;
+    background: #ff6b1b;
+    display: inline;
+    /* padding: 5px; */
+    padding: 5px 16px 5px 15px;
+    border-radius: 5px;
+    color: #fff;
+    }
+}
+}
+
+.ic-cart-image-title {
+    .image {
+        display: inline-block;
+    }
+
+    .title {
+        display: inline-block;
+
+        h6 {
+            font-family: 'Assistant', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #333333;
+            line-height: 20px;
+            margin-bottom: 2px;
+            width: 330px;
+        }
+
+        p {
+            font-family: 'Assistant', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #d7d7d7;
+            line-height: 20px;
+            margin-bottom: 0px;
+        }
+    }
+}
+
+.ic-cart-price {
+    font-family: 'Assistant', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #ff6b1b;
+    line-height: 20px;
+    margin-top: 10px;
+}
+
+.ic-cart-remove-save {
+    text-align: right;
+
+    i {
+        display: block;
+        font-size: 16px;
+        color: #333333;
+        cursor: pointer;
+
+        &:first-child {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+
+.ic-col-pl0 {
+    padding-left: 0px;
+}
+
+.ic-cart-total{
+        background: #FFFFFF;
+    -webkit-box-shadow: 11px 5px 15px 5px #F3F3F3;
+    box-shadow: 0px 4px 10px 3px #F3F3F3;
+       
+}
+
+.cart-total-title {
+    border-bottom: 1px solid #ff6b1b;
+        padding-left: 28px;
+            padding-top: 12px;
+    h4 {
+        font-family: 'Assistant', sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 42px;
+        color: #ff6b1b;
+        text-transform: capitalize;
+        margin-bottom: 4px;
+    }
+
+}
+
+.ic-cart-total-content {
+        padding: 0px 40px 0px 30px;;
+    h5 {
+        font-family: 'Assistant', sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 42px;
+        color: #333333;
+    }
+
+    ul {
+        padding-left: 23px;
+            margin-bottom: 5px;
+        
+        
+        li {
+            font-family: 'Assistant', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #333333;
+                list-style-type: decimal-leading-zero;
+                width: 190px;
+        }
+    }
+    
+    p{
+         font-family: 'Assistant', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #333333;
+        margin: 0px;
+    }
+}
+
+
+.ic-cart-total-amount{
+        border-top: 1px solid #ff6b1b;
+    padding: 10px 30px 0px 32px;
+    p{
+         font-family: 'Assistant', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        color: #ff6b1b;
+        text-transform: capitalize;
+    }
+}
+
+
+.last-ul{
+    margin-bottom: 12px!important;
+}
+
+.ic-cart-checkout-btn{
+    button{
+        background: #FF6B1B;
+        border: none;
+        border-radius: none!important;
+        width: 100%;
+        height: 50px;
+        text-transform: capitalize;
+         font-family: 'Assistant', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        color: #fff;
+         transition: all 0.3s ease-in-out;
+        
+        &:hover{
+            background: #333;
+        }
+        
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+.ic-cart-coupon{
+    position: relative;
+    margin-top: 20px;
+    .coupon-fleid{
+        input{
+            height: 50px;
+            border: 1px solid #CCCCCC;
+            border-radius: 5px;
+            
+             &::placeholder{
+             font-family: 'Assistant', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #cccccc;
+            text-transform: capitalize;
+        }
+            
+            &:focus{
+                outline: none;
+                box-shadow: none;
+            }
+            
+        }
+        
+       
+    }
+    .ic-coupon-btn{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    }  
+    
+    
+    button{
+         height: 50px;
+        width: 120px;
+        text-transform: capitalize;
+         font-family: 'Assistant', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+           color: #fff;
+        text-transform: capitalize;
+        background: #333333;
+        border-radius: 5px;
+        border: none;
+        transition: all 0.3s ease-in-out;
+        
+        &:hover{
+            background: #FF6B1B;
+        }
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+
+
+.ic-wishlist-area{
+    padding: 10px 0px 40px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

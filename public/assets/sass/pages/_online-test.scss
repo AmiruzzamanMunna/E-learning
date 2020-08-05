@@ -1,0 +1,361 @@
+.ic-audio-check {
+
+    a {
+        color: #ff6b1b;
+    }
+}
+
+.ic-online-test-check {
+    label {
+        background: #ff6b1b;
+        border: 1px solid #ff6b1b;
+    }
+
+    a {
+        color: #ff6b1b;
+    }
+}
+
+.ic-online-test-content {
+    margin-top: 12px;
+
+    h5 {
+        font-size: 20px;
+        font-family: 'Assistant', sans-serif;
+        color: #333333;
+        line-height: 30px;
+        font-weight: 700;
+    }
+
+    .ic-online-question-title {
+        p {
+            font-size: 16px;
+            font-family: 'Assistant', sans-serif;
+            font-weight: 400;
+            color: #333333;
+            line-height: 40px;
+            margin-bottom: 2px;
+
+            span {
+                color: #ff6b1b;
+            }
+        }
+    }
+
+    .ic-checkbox a {
+        margin-left: 10px;
+        font-weight: 400;
+    }
+
+    .ic-checkbox input[type="checkbox"]:checked + label:after {
+        opacity: 0;
+    }
+
+}
+
+.ic-online-test-bottom {
+    margin-bottom: 60px;
+    margin-top: 45px;
+
+    a {
+        height: 50px;
+        background: #333;
+        color: #fff !important;
+        font-size: 16px;
+        border-right: 5px;
+        font-weight: 600;
+        font-family: 'Assistant', sans-serif;
+        width: 100%;
+        padding: 0px;
+        line-height: 48px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background: #ff6b1b;
+            color: #fff;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+}
+
+.ic-online-test-content {
+    .bulgy-radios {
+
+
+
+        label {
+            display: inline-block;
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 0px;
+            cursor: pointer;
+            font-size: 2.5rem;
+            user-select: none;
+            color: #555;
+
+
+            &:hover input:not(:checked) ~ .radio {}
+        }
+
+        .label {
+            display: flex;
+            align-items: center;
+            padding-right: 0px;
+            font-family: 'Assistant', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #333333;
+            line-height: 28px;
+
+
+            span {}
+        }
+
+        input {
+            position: absolute;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+            left: -2000px;
+
+            &:checked {
+                ~ .radio {
+                    background-color: #ff6b1b;
+                    transition: background .3s;
+
+                    &::after {
+                        opacity: 1;
+                    }
+                }
+
+                ~ .label {
+                    color: #333;
+
+
+                    span {
+                        animation: bulge .5s forwards;
+                    }
+
+                    //adjust this if label is going to be more than 20 chars
+                    @for $i from 1 to 20 {
+                        span:nth-child(#{$i}) {
+                            animation-delay: $i * 0.025s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .radio {
+        position: absolute;
+        top: 6px;
+        left: 0;
+        height: 16px;
+        width: 16px;
+        background: #333;
+        border-radius: 3px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            opacity: 0;
+            top: 1px;
+            left: 0px;
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            background: #ff6b1b;
+            ;
+        }
+    }
+
+}
+
+.ic-online-test-question2 {
+    h5 {
+        font-size: 20px;
+        font-weight: 700;
+        font-family: 'Assistant', sans-serif;
+        color: #333333;
+        line-height: 30px;
+        margin-bottom: 5px;
+        margin-top: 34px;
+    }
+
+    p {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: 'Assistant', sans-serif;
+        color: #333333;
+        line-height: 40px;
+        margin: 0px;
+
+        span {
+            color: #ff6b1b;
+        }
+
+    }
+
+    ul {
+        padding-left: 21px;
+
+        li {
+            font-size: 16px;
+            font-weight: 400;
+            font-family: 'Assistant', sans-serif;
+            color: #333333;
+            line-height: 40px;
+            margin: 0px;
+            list-style-type: decimal;
+            padding-left: 5px;
+
+            input {
+                padding: 0px;
+                line-height: 0px;
+                width: 130px;
+                border: none;
+                color: #ff6b1b;
+                padding-left: 5px;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &::placeholder {
+                    font-size: 16px;
+                    font-weight: 400;
+                    font-family: 'Assistant', sans-serif;
+                    color: #333333;
+                }
+            }
+        }
+    }
+}
+
+
+#online-test2 {
+    display: none;
+}
+
+.ic-online-test-modal {
+    background: #FFFFFF;
+    -webkit-box-shadow: 11px 5px 15px 5px #F3F3F3;
+    box-shadow: 0px 4px 10px 3px #F3F3F3;
+    padding: 45px 0px 45px 0px;
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+    display: none;
+
+    h2 {
+        font-size: 48px;
+        font-weight: 800;
+        color: #09b683;
+        line-height: 36px;
+        font-family: 'Assistant', sans-serif;
+        text-transform: uppercase;
+        margin: 0px;
+
+        margin-bottom: 10px;
+
+
+    }
+
+    p {
+        font-family: 'Assistant', sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 48px;
+        color: #09b683;
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+
+    a {
+        width: 350px;
+        height: 50px;
+        background: #09b683;
+        color: #fff !important;
+        font-size: 24px;
+        font-weight: 700;
+        font-family: 'Assistant', sans-serif;
+        padding: 0px;
+        line-height: 48px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+}
+
+#ic-test-question-btn2 {
+    cursor: pointer;
+
+    a {
+        color: #fff;
+    }
+
+}
+
+#online-test3 {
+    display: none;
+
+    h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #333333;
+        line-height: 30px;
+        margin: 0px;
+        margin-top: 12px;
+        margin-bottom: 8px;
+    }
+
+    p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 36px;
+        color: #333333;
+        font-family: 'Assistant', sans-serif;
+        margin: 0px;
+    }
+
+    input {
+        line-height: 0px;
+        border: none;
+        color: #ff6b1b;
+        width: 120px;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        &::placeholder {
+            font-size: 16px;
+            font-weight: 400;
+
+            color: #333333;
+            font-family: 'Assistant', sans-serif;
+        }
+    }
+}
+
+
+.ic-online-test2-image {
+    margin-top: 10px;
+
+}

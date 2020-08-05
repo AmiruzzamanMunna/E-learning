@@ -1,0 +1,229 @@
+.ic-checkout-left {
+    padding: 45px 0px;
+
+    .header h4 {
+        font-size: 24px;
+        font-weight: 700;
+        font-family: 'Assistant', sans-serif;
+        line-height: 42px;
+        color: #333333;
+    }
+
+    .billing {
+
+        label {
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Assistant', sans-serif;
+            color: #333333;
+            line-height: 24px;
+        }
+
+        .nice-select {
+            width: 100%;
+            height: 50px;
+            border: 1px solid #E5E5E5;
+            border-radius: 0px;
+
+            ul {
+                width: 100%;
+            }
+
+            span {
+                font-weight: 400;
+                font-family: 'Assistant', sans-serif;
+                font-size: 16px;
+                color: #333333;
+                line-height: 48px;
+            }
+
+            &::after {
+                border-bottom: 1px solid #333;
+                border-right: 1px solid #333;
+                height: 8px;
+                width: 8px;
+                margin-top: -6px;
+            }
+        }
+    }
+
+
+    .payment {
+        margin: 30px 0px;
+        .ic-radios {
+
+            label {
+                display: inline-block;
+                position: relative;
+                height: 1em;
+                padding-left: 25px;
+                font-family: 'Assistant', sans-serif;
+                font-weight: 600;
+                cursor: pointer;
+                font-size: 16px;
+                user-select: none;
+                color: #555;
+                &:first-child{
+                        margin-bottom: 14px;
+                }
+
+
+                &:hover input:not(:checked) ~ .radio {}
+            }
+
+            .label {
+                display: flex;
+                align-items: center;
+                padding-right: 3rem;
+                font-size: 16px;
+                color: #131420;
+                font-family: 'Assistant', sans-serif;
+                font-weight: 600;
+                line-height: 26px;
+
+                span {}
+            }
+
+            input {
+                position: absolute;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+                left: -2000px;
+
+                &:checked {
+                    ~ .radio {
+                        background-color: #ff6b1b;
+                        transition: background .3s;
+                        border: 1px solid #ff6b1b;
+
+                        &::after {
+                            opacity: 1;
+                        }
+                    }
+
+                    ~ .label {
+                        color: #ff6b1b;
+                        font-family: 'Assistant', sans-serif;
+                        font-weight: 600;
+                        font-size: 16px;
+
+                        span {
+                            animation: bulge .5s forwards;
+                        }
+
+                        //adjust this if label is going to be more than 20 chars
+                        @for $i from 1 to 20 {
+                            span:nth-child(#{$i}) {
+                                animation-delay: $i * 0.025s;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .radio {
+            position: absolute;
+            top: 6px;
+            left: 0;
+            height: 14px;
+            width: 14px;
+            background: none;
+            border: 1px solid #333;
+            border-radius: 50%;
+
+            &::after {
+                content: '';
+                position: absolute;
+                opacity: 0;
+                top: 0px;
+                left: 0px;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #ff6b1b;
+                border: 1px solid #ff6b1b;
+            }
+
+        }
+
+
+    }
+
+
+    .payment-card-info {
+
+        label {
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Assistant', sans-serif;
+            color: #ff6b1b;
+            line-height: 24px;
+        }
+
+        .nice-select {
+            display: none;
+        }
+
+        .dd-selected {
+            width: 100%;
+            height: 50px;
+            border: 1px solid #E5E5E5;
+            border-radius: 0px;
+            background: #fff;
+
+            .dd-selected-text {
+                font-weight: 400;
+                font-family: 'Assistant', sans-serif;
+                font-size: 16px;
+                color: #333333;
+                line-height: 48px;
+            }
+
+
+        }
+
+        .dd-option-text {
+            @extend .dd-selected-text;
+        }
+
+        input {
+            width: 100%;
+            height: 50px;
+            border: 1px solid #E5E5E5;
+            border-radius: 0px;
+
+
+            &::placeholder {
+                font-weight: 400;
+                font-family: 'Assistant', sans-serif;
+                font-size: 16px;
+                color: #cccccc;
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+
+    }
+
+    .payment-card-info{
+        .payment-form-group{
+            margin-bottom: 0px;
+        }
+        .form-date{
+            input{
+                color: #cccccc;
+            }
+        }
+    }
+
+}
+
+.ic-right-checkout{
+    padding-top: 60px;
+}

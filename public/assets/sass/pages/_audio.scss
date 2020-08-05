@@ -1,0 +1,229 @@
+.ic-audio-check label{
+    background: #ff6b1b;
+    border: 1px solid #ff6b1b;
+}
+
+.ic-demo-audio-content {
+    margin-top: 25px;
+
+    .ic-demo-audio-player{
+        margin-bottom: 18px;
+    }
+    p {
+        font-size: 16px;
+        font-weight: 400;
+        color: #333;
+        font-family: 'Assistant', sans-serif;
+
+
+    }
+    
+    
+
+    .track-data-element-container {
+        display: none;
+    }
+
+    .track-container {
+        width: 100%;
+        padding: 5px 25px;
+    }
+
+    .playerName {
+        display: none;
+    }
+
+    .track-control-group {
+
+        .rewind {
+            padding-right: 0px;
+            padding-left: 8px;
+        }
+
+        .forward {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .repeat {
+            padding-left: 8px;
+            padding-right: 0px;
+            padding-top: 0px;
+            position: absolute;
+            top: 7px;
+        }
+
+        .rewind i {
+            font-size: 30px;
+            color: #333;
+        }
+
+        .forward i {
+            font-size: 30px;
+            color: #333;
+        }
+
+        .play i {
+            font-size: 20px;
+            color: #ff6b1b;
+        }
+
+        .play {
+            position: absolute;
+            left: 0;
+            padding-left: 0px;
+        }
+
+        .pause {
+            position: absolute;
+            left: 0;
+            padding-left: 0px;
+        }
+
+        .pause i {
+            font-size: 20px;
+            color: #ff6b1b;
+        }
+
+        .repeat i {
+            font-size: 20px;
+            color: #333;
+        }
+
+
+    }
+
+    .volume-container {
+        .volume i {
+            font-size: 20px;
+            color: #333;
+        }
+
+    }
+
+    .track-seekbar-handler {
+        .startTime {
+            font-size: 16px;
+            font-weight: 400;
+            font-family: 'Assistant', sans-serif;
+            color: #333;
+
+        }
+
+        .endTime {
+            font-size: 16px;
+            font-weight: 400;
+            font-family: 'Assistant', sans-serif;
+            color: #333;
+
+        }
+    }
+
+    .track-seek-container {
+        height: unset;
+    }
+
+    .track-controlelements-container {
+        height: auto;
+        position: relative;
+    }
+
+    .track-control-group {
+        margin: unset;
+        text-align: left;
+        margin-left: 20px;
+        line-height: 30px;
+    }
+
+    .volume-container {
+        top: 14%;
+        left: 18%;
+        position: absolute;
+    }
+    
+    
+
+    .track-seekbar-handler{
+    input[type=range] {
+  -webkit-appearance: none; 
+  width: 100%; 
+  background: transparent; 
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 8px;
+ 
+  background: #E9E9E9;
+}
+
+input[type=range]::-moz-range-track {
+  -webkit-appearance: none;
+    height: 8px;
+ 
+  background: #E9E9E9;
+}
+
+input[type=range]::-moz-range-progress {
+  background: #E9E9E9;
+ 
+  
+}
+
+input[type=range]::-ms-track {
+  -webkit-appearance: none;
+  height:8px;
+  
+  background: #E9E9E9;
+  color: transparent;
+  border: 0;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #E9E9E9;
+  border-radius: 0.75rem 0 0 0.75rem;
+}
+
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+ border-radius: 2px;
+  background:#ff6b1b;
+  cursor: pointer;
+     margin-top: -5px;
+}
+
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+height: 15px;
+  width: 15px;
+    border-radius: 2px;
+  background: #ff6b1b;
+  cursor: pointer;
+    margin-top: -5px;
+}
+
+input[type=range]::-ms-thumb {
+  height: 15px;
+  width: 15px;
+border-radius: 2px;
+  background: #ff6b1b;
+  cursor: pointer;
+  margin-top: -5px;
+}
+        
+        
+    }
+    
+
+
+    
+    
+    
+    
+    
+    
+
+}

@@ -1,0 +1,334 @@
+.ic-demo-video-header {
+    margin-top: 45px;
+    margin-bottom: 15px;
+
+    h2 {
+        font-size: 35px;
+        font-weight: 700;
+        font-family: 'Assistant', sans-serif;
+        color: #333333;
+        line-height: 48px;
+        margin: 0px;
+    }
+}
+
+.ic-demo-video-left {
+    background: #FFFFFF;
+    -webkit-box-shadow: 11px 5px 15px 5px #F3F3F3;
+    box-shadow: 0px 4px 10px 3px #F3F3F3;
+    padding: 8px 0px 18px 15px;
+
+    .title {
+        p {
+            font-size: 20px;
+            font-family: 'Assistant', sans-serif;
+            font-weight: 700;
+            color: #ff6b1b;
+
+            span {
+                color: #333333;
+            }
+
+        }
+    }
+}
+
+
+
+#ic-demo-video-main {
+    margin: 22px 0;
+}
+
+#ic-demo-video-main #ic-demo-faq .card {
+    margin-bottom: 20px;
+    border: 0;
+}
+
+#ic-demo-video-main #ic-demo-faq .card .card-header {
+    border: 0;
+
+    border-radius: 2px;
+    padding: 0;
+}
+
+#ic-demo-video-main #ic-demo-faq .card .card-header .btn-header-link {
+    color: #fff;
+    display: block;
+    text-align: left;
+    background: #333;
+    font-size: 18px;
+    height: 42px;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 600;
+    padding: .375rem 20px;
+}
+
+#ic-demo-video-main #ic-demo-faq .card .card-header .btn-header-link:after {
+    content: "\f107";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    float: right;
+}
+
+#ic-demo-video-main #ic-demo-faq .card .card-header .btn-header-link.collapsed {
+    background: #F2F2F2;
+    color: #333;
+    font-size: 18px;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 600;
+}
+
+#ic-demo-video-main #ic-demo-faq .card .card-header .btn-header-link.collapsed:after {
+    content: "\f106";
+}
+
+#ic-demo-video-main #ic-demo-faq .card .collapsing {
+
+    line-height: 30px;
+}
+
+#ic-demo-video-main #ic-demo-faq .card .collapse {
+    border: 0;
+}
+
+#ic-demo-video-main #ic-demo-faq .card .collapse.show {
+
+    line-height: 30px;
+    color: #222;
+}
+
+
+
+
+
+.ic-checkbox {
+    a {
+
+
+        display: inline-block;
+        margin-left: 18px;
+        font-family: 'Assistant', sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        color: #333333;
+        line-height: 36px;
+        text-decoration: none;
+
+    }
+
+    .ic-demo-video-active {
+        color: #ff6b1b;
+    }
+}
+
+
+
+.ic-checkbox {
+    position: relative;
+}
+
+.ic-checkbox label {
+    background-color: #333333;
+    border-radius: 3px;
+    cursor: pointer;
+    height: 16px;
+    left: 0;
+    position: absolute;
+    top: 5px;
+    width: 16px;
+    margin-top: 5px;
+}
+
+.ic-checkbox label:after {
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 3px;
+    opacity: 0;
+    position: absolute;
+    top: 2px;
+    transform: rotate(-45deg);
+    width: 8px;
+}
+
+
+
+.ic-checkbox input[type="checkbox"] {
+    visibility: hidden;
+}
+
+.ic-checkbox input[type="checkbox"]:checked + label {
+    background-color: #FF6B1B;
+    border-color: #FF6B1B;
+}
+
+.ic-checkbox input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+}
+
+.ic-demo-video-right {
+    h4 {
+        font-family: 'Assistant', sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        color: #333333;
+        line-height: 30px;
+        margin: 0px;
+        margin-top: -8px;
+    }
+
+    .ic-course-demo-video {
+        margin-top: 15px;
+    }
+
+    .video-overlay-play-button {
+        box-sizing: border-box;
+        width: 95%;
+        height: 95%;
+        padding: 10px calc(50% - 50px);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        opacity: 0.95;
+        cursor: pointer;
+        transition: opacity 150ms;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.ic-demo-video-right-content {
+
+    .btn:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.ic-demo-card-body {
+    padding: 0px;
+}
+
+.ic-demo-video-card-body {
+
+    padding: 8px 20px;
+
+    p {
+        font-size: 16px;
+        font-family: 'Assistant', sans-serif;
+        font-weight: 400;
+        color: #333333;
+        margin-bottom: 8px;
+
+
+        &:last-child {
+            margin-bottom: 0px;
+        }
+    }
+
+
+}
+
+.ic-course-demo-video-bottom {
+    margin-bottom: 60px;
+    margin-top: 245px;
+
+    a {
+        height: 50px;
+        background: #333;
+        border-radius: 5px;
+        width: 100%;
+        line-height: 48px;
+        font-weight: 600;
+        font-size: 16px;
+        color: #ff6b1b;
+        font-family: 'Assistant', sans-serif;
+        text-align: right;
+        padding: 0px;
+        transition: all 0.3s ease-in-out;
+        padding: 0px 15px;
+
+        i {
+            margin-left: 8px;
+        }
+
+        &:hover {
+            background: #ff6b1b;
+            color: #fff;
+        }
+
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+
+}
+
+
+/**Course Demo Pdf Page**/
+
+
+.pdf-checkbox label {
+    background-color: #ff6b1b;
+    border: 1px solid #ff6b1b;
+}
+
+.ic-course-demo-pdf-content {
+    margin-top: 23px;
+
+    p {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: 'Assistant', sans-serif;
+        color: #333333;
+        margin-bottom: 10px;
+
+    }
+}
+
+.ic-course-demo-pdf-bottom {
+    height: 50px;
+    background: #333;
+    border-radius: 5px;
+    margin-bottom: 60px;
+    transition: all 0.3s ease-in-out;
+    padding: 0px 20px;
+    margin-top: 115px;
+
+    a {
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        font-family: 'Assistant', sans-serif;
+        padding: 0px;
+        line-height: 48px;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        &:hover {
+            color: #ff6b1b;
+        }
+
+
+    }
+
+
+
+
+
+    .icofont-long-arrow-left {
+        margin-right: 8px;
+    }
+
+    .icofont-long-arrow-right {
+        margin-left: 8px;
+    }
+}

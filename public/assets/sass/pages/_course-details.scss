@@ -1,0 +1,132 @@
+.ic-course-details-main-left2 {
+    background: #fff;
+}
+
+.ic-navtabs2 {
+    margin-bottom: 22px;
+}
+
+.ic-course-details-content2 {
+
+    .ic-title {
+        h4 {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Assistant', sans-serif;
+            color: #333333;
+            line-height: 30px;
+            margin-bottom: 0px;
+
+        }
+
+        span {
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Assistant', sans-serif;
+            color: #ff6b1b;
+            line-height: 30px;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Assistant', sans-serif;
+            color: #333333;
+            line-height: 30px;
+            margin-bottom: 0px;
+        }
+    }
+
+    .ic-structure {
+        h6 {
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Assistant', sans-serif;
+            color: #ff6b1b;
+            line-height: 30px;
+            margin-bottom: 0px;
+        }
+
+        ul {
+            padding-left: 0px;
+            margin-bottom: 10px;
+
+            li {
+                list-style-type: none;
+                font-size: 16px;
+                font-weight: 600;
+                font-family: 'Assistant', sans-serif;
+                color: #333333;
+                line-height: 24px
+            }
+        }
+    }
+
+    .ic-details {
+        h6 {
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Assistant', sans-serif;
+            color: #ff6b1b;
+            line-height: 30px;
+            margin-bottom: 0px;
+        }
+
+        p {
+
+            font-size: 16px;
+            font-weight: 400;
+            font-family: 'Assistant', sans-serif;
+            color: #333333;
+            line-height: 24px;
+            margin-bottom: 20px;
+
+            &:last-child {
+                margin-bottom: 3px;
+            }
+        }
+    }
+
+    .ic-bottom {
+        p {
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Assistant', sans-serif;
+            color: #ff6b1b;
+            line-height: 40px;
+            margin-bottom: 0px;
+
+            span {
+                color: #333333;
+                font-weight: 400;
+            }
+        }
+
+        a {
+            height: 50px;
+            width: 150px;
+            background: #333;
+            color: #ff6b1b;
+            line-height: 48px;
+            padding: 0px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Assistant', sans-serif;
+            transition: all 0.3s ease-in-out;
+            margin-top: 26px;
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+            &:hover {
+                background: #ff6b1b;
+                color: #fff;
+            }
+
+        }
+    }
+
+
+}

@@ -1,0 +1,89 @@
+.ic-course-demo-title{
+    margin-top: 40px;
+    h2{
+        font-size: 35px;
+        font-weight: 700;
+        font-family: 'Assistant', sans-serif;
+        color: #333333;
+        line-height: 48px;
+        
+    }
+}
+
+.ic-course-demo-content{
+    background: #fff;
+    margin-top: 20px;
+    
+    a{
+        text-decoration: none;
+    }
+}
+.ic-m-25{
+    padding: 0px 25px;
+        margin-bottom: 20px;
+}
+
+.demo-content-active{
+    background:  #FF6B1B!important;
+}
+.ic-demo-content-body-warper{
+    background: #333;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+        padding: 0px 25px;
+}
+.ic-course-demo-content{
+    h6{
+        font-size: 24px;
+        font-weight: 700;
+        font-family: 'Assistant', sans-serif;
+        color: #333333;
+        line-height: 30px;
+        margin: 0px;
+        
+    }
+    .title2{
+        text-align: right;
+    }
+    p{
+        font-size: 18px;
+        color: #fff;
+        font-family: 'Assistant', sans-serif;
+        font-weight: 700;
+       
+        margin: 0px;
+        
+    }
+    i{
+        font-size: 18px;
+        color: #fff;
+        margin-right: 10px;
+    }
+    
+    .ic-demo-title{
+        .icon{
+            display: inline-block;
+        }
+        .title{
+            display: inline-block;
+        }
+    }
+    
+    .ic-demo-duration{
+        text-align: right;
+    }
+    
+}
+
+.lock-icon::before{
+    content: "\ec61";
+    font-family: IcoFont !important;
+    font-weight: 700;
+    margin-left: 3px;
+    display: unset;
+    vertical-align: 0;
+    border-top: none;
+    border: none;
+}

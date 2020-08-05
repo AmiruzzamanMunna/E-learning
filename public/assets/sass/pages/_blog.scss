@@ -1,0 +1,251 @@
+.ic-breadcumb {
+    background: #F8F8F8;
+}
+
+.breadcumb-content {
+    padding: 24px 0px;
+
+    h2 {
+        font-family: 'Assistant', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 24px;
+        margin-bottom: 3px;
+        color: #0f0f0f;
+
+
+    }
+
+    p {
+        font-family: 'Assistant', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        margin-bottom: 0px;
+
+
+
+        a {
+            color: #333333;
+            text-decoration: none;
+        }
+    }
+}
+
+.ic-blog-page-area {
+    padding-top: 55px;
+}
+
+
+.ic-blog-page-title {
+    h2 {
+        font-family: 'Assistant', sans-serif;
+        font-size: 30px;
+        font-weight: 700;
+        color: #333;
+        text-transform: capitalize;
+        line-height: 24px;
+        margin-bottom: 25px;
+    }
+}
+
+.ic-view-aritical {
+    text-align: right;
+    margin-right: 7px;
+    display: none;
+
+    a {
+        font-family: 'Assistant', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #ffffff;
+        background: #ff6b1b;
+        text-decoration: none;
+        text-transform: capitalize;
+        border-radius: 5px;
+        padding: 6px 12px 6px 12px;
+    }
+}
+.ic-view-mt{
+    margin-top: 7px;
+}
+
+.ic-blog-page-content {
+    .small-title {
+        font-family: 'Assistant', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #cccccc;
+        transition: all 0.2s ease-in-out;
+        margin-bottom: 0px;
+        margin: 9px 0px 5px 0px;
+    }
+
+    h4 {
+        font-family: 'Assistant', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        transition: all 0.2s ease-in-out;
+        margin-bottom: 8px;
+
+        &:hover a {
+            color: #ff6b1b;
+            transition: all 0.2s ease-in-out;
+        }
+
+        &:hover p {
+            color: #333 !important;
+        }
+
+
+        a {
+            color: #333333;
+            text-decoration: none;
+        }
+    }
+
+    .author {
+        font-family: 'Assistant', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: #cccccc;
+        transition: all 0.2s ease-in-out;
+    }
+
+}
+
+
+
+
+#ic-hover-color:hover ~ .small-title {
+    color: #333;
+}
+
+
+
+
+#ic-owl-blog1 {
+    .owl-prev {
+        background: #333;
+        width: 28px;
+        height: 28px;
+
+        span {
+            font-size: 25px;
+            color: #fff;
+            padding: 0px;
+            line-height: 22px;
+
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            background: #333;
+        }
+    }
+
+    .owl-next {
+        background: #333;
+        width: 28px;
+        height: 28px;
+
+        span {
+            font-size: 25px;
+            color: #fff;
+            padding: 0px;
+            line-height: 22px;
+
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            background: #333;
+        }
+    }
+
+    .owl-dots {
+        display: none;
+    }
+
+    .owl-nav {
+        position: absolute;
+        top: -65px;
+        right: 0px;
+    }
+}
+
+
+.ic-blog-item-area {
+    margin-top: 40px;
+}
+
+
+.ic-blog-page-owl {
+    .owl-prev {
+        background: #333 !important;
+        width: 28px;
+        height: 28px;
+
+        span {
+            font-size: 25px;
+            color: #fff;
+            padding: 0px;
+            line-height: 22px;
+
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {}
+    }
+
+    .owl-next {
+        background: #333 !important;
+        width: 28px;
+        height: 28px;
+
+        span {
+            font-size: 25px;
+            color: #fff;
+            padding: 0px;
+            line-height: 22px;
+
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            background: #FF6B1B;
+        }
+    }
+
+    .owl-dots {
+        display: none;
+    }
+
+    .owl-nav {
+        position: absolute;
+        top: -58px;
+        right: 0;
+    }
+}
+
+
+
+.ic-hr-ld-area {
+    margin-top: 120px;
+}
+
+.ic-it-software-area {
+    margin-bottom: 42px;
+}
