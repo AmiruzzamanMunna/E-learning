@@ -66,10 +66,10 @@
                         <video src="{{asset('public/assets/images/Course')}}/{{$data->course_video}}" poster="{{asset('public/assets/images/course-details.jpg')}}"></video>
                     </div>
                     <div class="ic-course-details-banner-right">
-                        <button type="button" class="add-cart-btn"><a onclick="cartAdd()">Add To Cart</a></button>
+                        <button type="button" class="add-cart-btn" onclick="cartAdd()">Add To Cart</button>
                         <button type="button" class="buy-now-btn" onclick="buyNow()">Buy Now</button>
-                        <div class="icon">
-                            <a onclick="wishListAdd()"><i class="icofont-ui-love"></i></a>
+                        <div class="icon" onclick="wishListAdd()">
+                            <a><i class="icofont-ui-love"></i></a>
                         </div><br><br>
                         <div id="msgshow"></div>
                     </div><br><br><br>
@@ -133,12 +133,18 @@
                         <div class="ic-course-detais-top">
                             <h4>This Course Includes</h4>
                             <ul>
-                                <li>11.5 hours on-demand video</li>
-                                <li> 69 downloadable resources</li>
-                                <li>Full lifetime access</li>
-                                <li>Access on mobile and TV</li>
-                                <li>Assignments</li>
-                                <li>Certificate of Completion</li>
+                                @foreach ($mergedContent as $item)
+                                    <li>Total {{$item->course_credithour}} Credit Hour.</li>
+                                    <li>Total {{$item->lecture}} Lecture.</li>
+                                    <li>Total {{$item->resources}} Resources.</li>
+                                    <li>{{$item->assignment}}.</li>
+                                    <li>{{$item->exam}}.</li>
+                                    @if ($item->certificate)
+                                        <li>{{$item->certificate}} of Completion.</li>
+                                    @endif
+                                    
+                                @endforeach
+                                
                             </ul>
                         </div>
 
@@ -168,6 +174,8 @@
 
     function cartAdd(){
 
+        
+
         var course_id=$("#course_id").val();
 
         $.ajax({
@@ -180,12 +188,28 @@
             },
             success:function(data){
 
+                
+
                 if(data.status=='success'){
 
                     let html='';
 
                     html+='<div class="alert alert-success alert-dismissible fade show" role="alert">';
                     html+='<strong>Success!</strong> Course Added to the Cart.';
+                    html+='<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
+                    html+='<span aria-hidden="true">&times;</span>';
+                    html+='</button>';
+                    html+='</div>';
+
+                    $("#msgshow").html(html);
+                    
+                }
+                if(data.status=='login'){
+
+                    let html='';
+
+                    html+='<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+                    html+='<strong>Sorry!</strong> You need to login';
                     html+='<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
                     html+='<span aria-hidden="true">&times;</span>';
                     html+='</button>';
@@ -219,6 +243,20 @@
                     location.replace("{{route('user.checkOutIndex')}}");
                     
                 }
+                if(data.status=='login'){
+
+                    let html='';
+
+                    html+='<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+                    html+='<strong>Sorry!</strong> You need to login';
+                    html+='<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
+                    html+='<span aria-hidden="true">&times;</span>';
+                    html+='</button>';
+                    html+='</div>';
+
+                    $("#msgshow").html(html);
+
+                }
             },
             error:function(error){
                 console.log(error);
@@ -245,6 +283,20 @@
 
                     html+='<div class="alert alert-success alert-dismissible fade show" role="alert">';
                     html+='<strong>Success!</strong> Course Added to the Wish List.';
+                    html+='<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
+                    html+='<span aria-hidden="true">&times;</span>';
+                    html+='</button>';
+                    html+='</div>';
+
+                    $("#msgshow").html(html);
+
+                }
+                if(data.status=='login'){
+
+                    let html='';
+
+                    html+='<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+                    html+='<strong>Sorry!</strong> You need to login';
                     html+='<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
                     html+='<span aria-hidden="true">&times;</span>';
                     html+='</button>';

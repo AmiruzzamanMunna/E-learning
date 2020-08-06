@@ -42,6 +42,9 @@ class CartController extends Controller
                     ->leftjoin('tbl_course','tbl_course.course_id','tbl_cart.cart_course_id')
                     ->get();
 
+
+        $total=0;
+
         
         if(count($cart)){
 
@@ -56,9 +59,11 @@ class CartController extends Controller
                     'course_authorname'=>$item->course_authorname,
                     'course_price'=>$item->cart_course_price,
                 ];
+
+                $total+=$item->cart_course_price;
             }
     
-            return response()->json(array('status'=>'Success','data'=>$dataArray));
+            return response()->json(array('status'=>'Success','data'=>$dataArray,'total'=>$total));
 
         }else{
 
@@ -69,14 +74,23 @@ class CartController extends Controller
 
     public function cartAdd(Request $request)
     {
-        $course_id=$request->course_id;
-        $coursePrice=Course::where('course_id',$course_id)->first();
-        $data=new Cart();
-        $data->cart_user_id=$request->session()->get('loggedUser');
-        $data->cart_course_id=$course_id;
-        $data->cart_course_price=$coursePrice->course_price;
-        $data->save();
-        return response()->json(array('status'=>'success'));
+        if($request->session()->get('loggedUser')){
+
+            $course_id=$request->course_id;
+            $coursePrice=Course::where('course_id',$course_id)->first();
+            $data=new Cart();
+            $data->cart_user_id=$request->session()->get('loggedUser');
+            $data->cart_course_id=$course_id;
+            $data->cart_course_price=$coursePrice->course_price;
+            $data->save();
+            return response()->json(array('status'=>'success'));
+
+        }else{
+
+            return response()->json(array('status'=>'login'));
+
+        }
+        
     }
     public function cartRemove(Request $request)
     {

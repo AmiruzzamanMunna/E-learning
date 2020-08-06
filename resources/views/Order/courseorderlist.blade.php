@@ -12,16 +12,14 @@
             <div class="row">
                 <div class="col-md-6">Order List</div>
                 <div class="col-md-1 ml-auto">
-                    @if (Session::has('adminadd'))
-                        <i onclick="openModal()" class="fas fa-plus"></i>
-                    @endif
+                    
                     
                 </div>
             </div>
         </div>
         <div class="card-body">
 
-            <table class="table table-bordered table-responsive-md-sm-lg">
+            <table class="table table-bordered table-responsive-md">
                 <thead>
                     <thead>
                         <th>Sl No</th>

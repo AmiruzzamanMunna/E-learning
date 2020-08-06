@@ -69,7 +69,35 @@ class CourseController extends Controller
         $alllecture=CourseContent::where('course_content_course_id',$id)->get();
 
         $courseModule=CourseModule::where('course_module_course_id',$id)->get();
+
+        $mergedContent=DB::select("
+
+                SELECT 
+                course_credithour,
+                COUNT(course_content_id) AS lecture,
+                (COUNT(course_content_course_video) + COUNT(course_content_course_video) + COUNT(course_content_pdf)) AS resources,
+                IF(course_content_video_excercise != '',
+                    'Assignment',
+                    'No Assignment') AS assignment,
+                IF(course_content_online_test != 0,
+                    'Exam',
+                    'No Exam') AS exam,
+                IF(course_content_online_test = 1,
+                    'Certificate',
+                    '') AS certificate
+            FROM
+                tbl_course
+                    LEFT JOIN
+                tbl_course_content ON tbl_course_content.course_content_course_id = tbl_course.course_id
+            WHERE
+                course_id = $id
+            GROUP BY course_id
+        ");
+
+    
+        
         return view('User.coursedetails')
+                ->with('mergedContent',$mergedContent)
                 ->with('courseModule',$courseModule)
                 ->with('id',$id)
                 ->with('data',$data)
@@ -115,6 +143,7 @@ class CourseController extends Controller
 
         $checkUserCourse=CourseOrder::where('order_user_id',$request->session()->get('loggedUser'))
                                     ->where('order_course_id',$id)
+                                    ->where('order_status',1)
                                     ->first();
         
         return view('User.coursedemo')

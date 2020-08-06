@@ -101,17 +101,13 @@
             url:"{{route('user.getCartItem')}}",
             success:function(data){
 
-                console.log(data);
-
                 var html='';
                 var html2='';
                 var total=0;
                 
                 if(data.data.length>0){
 
-                    for($i=0;$i<data.data.length;$i++){
-
-                        total+=data.data[$i].course_price;
+                    for($i=0;$i<data.data.length;$i++){                        
 
                         html+='<div class="ic-cart-item">';
                         html+='<div class="row">';
@@ -156,9 +152,12 @@
                         html2+='<div class="col-sm-2 col-lg-2 col-md-12 my-auto">';
                         html2+='<p>$'+data.data[$i].course_price+'</p>';
                         html2+='</div>';
+
+                        total+=data.data[$i].course_price;
                         
                     }
-                    $("#totalprice").html('$'+total);
+                
+                    $("#totalprice").html('$'+data.total);
                     if(data.data.length>1){
 
                         $("#showtitle").html(data.data.length+' Courses in cart');

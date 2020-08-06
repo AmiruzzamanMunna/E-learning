@@ -25,7 +25,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-leanpub"></i><span> Course <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-book"></i><span> Course <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                                 <ul class="submenu">
                                     @if (Session::has('coursecatlist'))
 
@@ -53,7 +53,7 @@
                             </li>
                         
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i><span>User <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-user-tie"></i><span>User <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                                 <ul class="submenu">
 
                                     
@@ -67,7 +67,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i><span>Order <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-shopping-bag"></i><span>Order <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                                 <ul class="submenu">
                                     {{-- @if (Session::has('couponlist')) --}}
                                         <li><a href="{{route('admin.courseOrderList')}}">Course Order</a></li>
@@ -76,7 +76,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i><span>Coupon <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-gift"></i><span>Coupon <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                                 <ul class="submenu">
                                     @if (Session::has('couponlist'))
                                         <li><a href="{{route('admin.couponIndex')}}">Coupon</a></li>

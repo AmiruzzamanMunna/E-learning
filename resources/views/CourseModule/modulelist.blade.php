@@ -28,7 +28,7 @@
         @endif
         <div class="card-body">
 
-            <table class="table table-bordered table-responsive-md-sm-lg">
+            <table class="table table-bordered table-responsive-md">
                 <thead>
                     <thead>
                         <th>Sl No</th>

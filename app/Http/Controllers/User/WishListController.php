@@ -68,11 +68,20 @@ class WishListController extends Controller
     }
     public function wishListAdd(Request $request)
     {
-        $data= new WishList();
-        $data->wishlist_user_id=$request->session()->get('loggedUser');
-        $data->wishlist_course_id=$request->course_id;
-        $data->save();
-        return response()->json(array('status'=>'success'));
+        if($request->session()->get('loggedUser')){
+
+            $data= new WishList();
+            $data->wishlist_user_id=$request->session()->get('loggedUser');
+            $data->wishlist_course_id=$request->course_id;
+            $data->save();
+            return response()->json(array('status'=>'success'));
+
+        }else{
+
+            return response()->json(array('status'=>'login'));
+
+        }
+        
     }
     public function wishToCart(Request $request)
     {

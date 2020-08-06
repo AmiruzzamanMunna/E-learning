@@ -248,7 +248,7 @@
                         html2+='</div>';
                         
                     }
-                    $("#totalprice").html('$'+total);
+                    $("#totalprice").html('$'+data.total);
                     if(data.data.length>1){
 
                         $("#showtitle").html(data.data.length+' Courses in cart');
