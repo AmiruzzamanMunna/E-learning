@@ -39,6 +39,11 @@ Route::get('/courseDemo/{id}','User\CourseController@courseDemo')->name('user.co
 Route::get('/courseDemoFile/{course_id}/{id}/{checkid}','User\CourseController@courseDemoFile')->name('user.courseDemoFile');
 
 
+// Blog 
+
+Route::get('/blogdetails/{id}','User\BlogController@blogDetails')->name('user.blogDetails');
+
+
 // Card Add 
 Route::get('/cartAdd','User\CartController@cartAdd')->name('user.cartAdd');
 
@@ -202,5 +207,15 @@ Route::group(['middleware'=>['adminSess'],'prefix' => 'admin'], function () {
     Route::get('/orderCourseDelete/{id}','Admin\CourseOrderController@orderCourseDelete')->name('admin.orderCourseDelete');
     Route::get('/activeCourse/{id}','Admin\CourseOrderController@activeCourse')->name('admin.activeCourse');
     Route::get('/deActiveCourse/{id}','Admin\CourseOrderController@deActiveCourse')->name('admin.deActiveCourse');
+
+
+    // Blog 
+
+    Route::get('/blog','Admin\BlogController@blogList')->name('admin.blogList');
+    Route::get('/blogAdd','Admin\BlogController@blogAdd')->name('admin.blogAdd');
+    Route::post('/blogAdd','Admin\BlogController@blogInsert')->name('admin.blogInsert');
+    Route::get('/blogEdit/{id}','Admin\BlogController@blogEdit')->name('admin.blogEdit');
+    Route::post('/blogEdit/{id}','Admin\BlogController@blogUpdate')->name('admin.blogUpdate');
+    Route::get('/blogDelete/{id}','Admin\BlogController@blogDelete')->name('admin.blogDelete');
 });
 

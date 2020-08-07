@@ -84,6 +84,15 @@
                                 
                                 </ul>
                             </li>
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-blog"></i><span>Blog <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <ul class="submenu">
+                                    {{-- @if (Session::has('couponlist')) --}}
+                                        <li><a href="{{route('admin.blogList')}}">Blog Page</a></li>
+                                    {{-- @endif --}}
+                                
+                                </ul>
+                            </li>
 
                             
 

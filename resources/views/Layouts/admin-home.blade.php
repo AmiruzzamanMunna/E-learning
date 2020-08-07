@@ -9,6 +9,7 @@
         <meta content="Themesbrand" name="author" />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         @include('Layouts.head')
+        @yield('script')
     </head>
 <body>
  

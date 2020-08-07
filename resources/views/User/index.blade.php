@@ -25,7 +25,6 @@
 
 <!--Category Area Start-->
 
-
 <section class="ic-category-area">
     <div class="container">
         <div class="row">
@@ -272,35 +271,25 @@
             </div>
         </div>
         <div class="row">
+            
+
+            @forelse ($dataBlog as $item)
             <div class="col-md-4 col-sm-6">
                 <div class="ic-blog-content">
-                   <a href="blog-details.html"><img src="{{asset('public')}}/assets/images/blog1.jpg" class="img-fluid" alt=""></a> 
-                    <p class="author">Post By Shamim / 15 June, 2020</p>
-                    <h4><a href="blog-details.html">How to Success in an online course</a></h4>
-                    <p>Education is the process of facilitating learning or the
-                        acquisition of knowledge, skills, values . . . . .</p>
+                   <a href="{{route('user.blogDetails',$item['blog_id'])}}"><img src="{{$item['blog_image']}}" class="img-fluid" alt=""></a> 
+                    <p class="author">Post By {{$item['blog_blooger_name']}} / {{date('d F, Y',strtotime($item['blog_date']))}}</p>
+                    <h4><a href="{{route('user.blogDetails',$item['blog_id'])}}">{{$item['blog_title']}}</a></h4>
+                    <p>{!!$item['blog_details']!!}</p>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="ic-blog-content">
-                   <a href="blog-details.html"><img src="{{asset('public')}}/assets/images/blog2.jpg" class="img-fluid" alt=""></a> 
-                    <p class="author">Post By Shamim / 15 June, 2020</p>
-                    <h4><a href="blog-details.html">How to Success in an online course</a></h4>
-                    <p>Education is the process of facilitating learning or the
-                        acquisition of knowledge, skills, values . . . . .</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <div class="ic-blog-content">
-                   <a href="blog-details.html"><img src="{{asset('public')}}/assets/images/blog3.jpg" class="img-fluid" alt=""></a> 
-                    <p class="author">Post By Shamim / 15 June, 2020</p>
-                    <h4><a href="blog-details.html">How to Success in an online course</a></h4>
-                    <p>Education is the process of facilitating learning or the
-                        acquisition of knowledge, skills, values . . . . .</p>
-                </div>
-            </div>
+            @empty
+                <h3 style="color: #ff6b1b">Sorry No Blog Content is Available</h3>
+            @endforelse
+            
+
         </div>
     </div>
 </section>
+
     
 @endsection

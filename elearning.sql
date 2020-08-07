@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2020 at 02:21 PM
+-- Generation Time: Aug 07, 2020 at 01:13 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -70,6 +70,29 @@ INSERT INTO `tbl_adminrole` (`adminrole_id`, `adminrole_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_blog`
+--
+
+CREATE TABLE `tbl_blog` (
+  `blog_id` int(11) NOT NULL,
+  `blog_title` varchar(255) DEFAULT NULL,
+  `blog_image` varchar(45) DEFAULT NULL,
+  `blog_blooger_name` varchar(45) DEFAULT NULL,
+  `blog_details` longtext,
+  `blog_date` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_blog`
+--
+
+INSERT INTO `tbl_blog` (`blog_id`, `blog_title`, `blog_image`, `blog_blooger_name`, `blog_details`, `blog_date`) VALUES
+(3, 'Why Swift UI Should Be on the Radar of Every Mobile Developer', '1596797215blog-image-1.jpg', 'Amiruzzaman Bin Ali', '<div class=\"ic-title-bottom-txt\" style=\"color: rgb(33, 37, 41); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px;\"><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">Swift UI is a user interface framework intended to make it easier to build Apple platform apps in the Swift programming language fmobile development. It was introduced at the annual Worldwide Developers Conference (WWDC) in 2019, alongside many new APIs and frameworks, all intended to grow the base of mobile developers fluent in developing for Apple products. As the Cupertino-based company explained, “Swift UI is an innovative, exceptionally simple way to build user interfaces across all Apple platforms with the power of Swift.”</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">As Apple plans for the next decade, this new UI framework is Apple’s effort to make iOS development more approachable for beginner mobile developers. Though Swift UI is still in its infancy, its potential to shift how Apple apps are developed is so significant that we mobile developers should start to take note of it. Job descriptions requiring Swift UI expertise are likely to appear in the next few years.</p></div><div class=\"ic-blog-details-small-title\" style=\"color: rgb(33, 37, 41); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px;\"><h4 style=\"margin-top: 0px; margin-bottom: 18px; line-height: 24px; font-size: 24px; font-family: Assistant, sans-serif; color: rgb(51, 51, 51);\">Why is Apple prioritizing Swift UI?</h4><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">The Apple App Store of today looks very different from that of 2008 when it was first introduced to the world. With older Apple p models (iPod Touch, first-generation iPad, etc.) still in use today, there are dozens of screen sizes accessing content from today’s App Store. Auto Layout has long been the default Swift system for managing layouts on various screen sizes and orientations. But with so much fragmentation in the device landscape, mobile developers have been asking for a much simpler and mintuitive way of building apps that can scale across all Apple devices. This is why Swift UI has entered the scene, with features including:</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\"><span style=\"font-weight: 700;\">Drag-and-drop code creation:</span>&nbsp;Using Swift UI, developers can drag a button or other component from the object library and drop it onto the canvas. Swift UI automatically writes the necessary code. This drag-and-drop method is even applicable to attributes like font weight.</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\"><span style=\"font-weight: 700;\">Vertical-Horizontal-Z Axis Stack:</span>&nbsp;The VHZ stack lets developers create complex designs simply by dragging and dropping elements in orientations either vertical to, horizontal to, or along the Z-axis of other elements. It’s similar to building within rows or columns, with no manual coding required. This is akin to using the Bootstrap library to build complex interfaces for web design.</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\"><span style=\"font-weight: 700;\">Reusable UI components:</span>&nbsp;Once you’ve created layouts in Swift UI, they can be reused throughout your app. For example, if you’ve built an appearance comprised of a photo left-justified with a precise caption design to the right of the image, that component can be reused by extracting a new subview.</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">Build across Apple platforms: With Swift UI, Apple’s made it easier to build across Apple platforms like WatchOS, TV OS, and macOS by using the subview components made in one app across other apps.</p></div><div class=\"ic-blog-details-small-title\" style=\"color: rgb(33, 37, 41); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px;\"><h4 style=\"margin-top: 0px; margin-bottom: 18px; line-height: 24px; font-size: 24px; font-family: Assistant, sans-serif; color: rgb(51, 51, 51);\">How will Swift UI change mobile development?</h4><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">2019 saw the popularity of declarative programming skyrocket, mostly thanks to the rise of React, one of the most popular front-end frameworks used today. Much of the excitement and expertise React developers have for the framework’s functionality has made its way to the world of mobile development. Other examples include Google’s shiny new cross-platform UI framework, Flutter, as well as the Kotlin-based JetPack Compose. React, Flutter and JetPack Compose all use a declarative style for building UIs and managing state.</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">With Apple entering Swift UI into the ring, we’re moving further into the declarative world for mobile development. Hopefully, with continued investment and development into Swift UI, it will become a more enjoyable way of creating iOS apps and adopted by the next generation of iOS developers. I believe the simpler syntax and more straightforward state management will encourage more people to pick up Swift and iOS development.</p></div><div class=\"ic-blog-details-small-title\" style=\"color: rgb(33, 37, 41); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px;\"><h4 style=\"margin-top: 0px; margin-bottom: 18px; line-height: 24px; font-size: 24px; font-family: Assistant, sans-serif; color: rgb(51, 51, 51);\">Swift UI vs. Flutter</h4><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">Flutter is a UI framework developed by Google to build native cross-platform apps using the Dart programming language. It’s been widely embraced by mobile developers and ranked as one of the most loved frameworks in the latest StackOverflow survey. Having taught courses in both Swift UI and Flutter, I’ve seen many similarities between the two.</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">Flutter is a UI framework developed by Google to build native cross-platform apps using the Dart programming language. It’s been widely embraced by mobile developers and ranked as one of the most loved frameworks in the latest StackOverflow survey. Having taught courses in both Swift UI and Flutter, I’ve seen many similarities between the two.</p></div>', '2020-08-07'),
+(4, 'Why Swift UI Should Be on the Radar of Every Mobile Developer', '1596797228blog-image-1.jpg', 'Amiruzzaman Bin Ali', '<div class=\"ic-title-bottom-txt\" style=\"color: rgb(33, 37, 41); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px;\"><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">Swift UI is a user interface framework intended to make it easier to build Apple platform apps in the Swift programming language fmobile development. It was introduced at the annual Worldwide Developers Conference (WWDC) in 2019, alongside many new APIs and frameworks, all intended to grow the base of mobile developers fluent in developing for Apple products. As the Cupertino-based company explained, “Swift UI is an innovative, exceptionally simple way to build user interfaces across all Apple platforms with the power of Swift.”</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">As Apple plans for the next decade, this new UI framework is Apple’s effort to make iOS development more approachable for beginner mobile developers. Though Swift UI is still in its infancy, its potential to shift how Apple apps are developed is so significant that we mobile developers should start to take note of it. Job descriptions requiring Swift UI expertise are likely to appear in the next few years.</p></div><div class=\"ic-blog-details-small-title\" style=\"color: rgb(33, 37, 41); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px;\"><h4 style=\"margin-top: 0px; margin-bottom: 18px; line-height: 24px; font-size: 24px; font-family: Assistant, sans-serif; color: rgb(51, 51, 51);\">Why is Apple prioritizing Swift UI?</h4><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">The Apple App Store of today looks very different from that of 2008 when it was first introduced to the world. With older Apple p models (iPod Touch, first-generation iPad, etc.) still in use today, there are dozens of screen sizes accessing content from today’s App Store. Auto Layout has long been the default Swift system for managing layouts on various screen sizes and orientations. But with so much fragmentation in the device landscape, mobile developers have been asking for a much simpler and mintuitive way of building apps that can scale across all Apple devices. This is why Swift UI has entered the scene, with features including:</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\"><span style=\"font-weight: 700;\">Drag-and-drop code creation:</span>&nbsp;Using Swift UI, developers can drag a button or other component from the object library and drop it onto the canvas. Swift UI automatically writes the necessary code. This drag-and-drop method is even applicable to attributes like font weight.</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\"><span style=\"font-weight: 700;\">Vertical-Horizontal-Z Axis Stack:</span>&nbsp;The VHZ stack lets developers create complex designs simply by dragging and dropping elements in orientations either vertical to, horizontal to, or along the Z-axis of other elements. It’s similar to building within rows or columns, with no manual coding required. This is akin to using the Bootstrap library to build complex interfaces for web design.</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\"><span style=\"font-weight: 700;\">Reusable UI components:</span>&nbsp;Once you’ve created layouts in Swift UI, they can be reused throughout your app. For example, if you’ve built an appearance comprised of a photo left-justified with a precise caption design to the right of the image, that component can be reused by extracting a new subview.</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">Build across Apple platforms: With Swift UI, Apple’s made it easier to build across Apple platforms like WatchOS, TV OS, and macOS by using the subview components made in one app across other apps.</p></div><div class=\"ic-blog-details-small-title\" style=\"color: rgb(33, 37, 41); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px;\"><h4 style=\"margin-top: 0px; margin-bottom: 18px; line-height: 24px; font-size: 24px; font-family: Assistant, sans-serif; color: rgb(51, 51, 51);\">How will Swift UI change mobile development?</h4><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">2019 saw the popularity of declarative programming skyrocket, mostly thanks to the rise of React, one of the most popular front-end frameworks used today. Much of the excitement and expertise React developers have for the framework’s functionality has made its way to the world of mobile development. Other examples include Google’s shiny new cross-platform UI framework, Flutter, as well as the Kotlin-based JetPack Compose. React, Flutter and JetPack Compose all use a declarative style for building UIs and managing state.</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">With Apple entering Swift UI into the ring, we’re moving further into the declarative world for mobile development. Hopefully, with continued investment and development into Swift UI, it will become a more enjoyable way of creating iOS apps and adopted by the next generation of iOS developers. I believe the simpler syntax and more straightforward state management will encourage more people to pick up Swift and iOS development.</p></div><div class=\"ic-blog-details-small-title\" style=\"color: rgb(33, 37, 41); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px;\"><h4 style=\"margin-top: 0px; margin-bottom: 18px; line-height: 24px; font-size: 24px; font-family: Assistant, sans-serif; color: rgb(51, 51, 51);\">Swift UI vs. Flutter</h4><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">Flutter is a UI framework developed by Google to build native cross-platform apps using the Dart programming language. It’s been widely embraced by mobile developers and ranked as one of the most loved frameworks in the latest StackOverflow survey. Having taught courses in both Swift UI and Flutter, I’ve seen many similarities between the two.</p><p style=\"font-family: Assistant, sans-serif; color: rgb(51, 51, 51); line-height: 24px;\">Flutter is a UI framework developed by Google to build native cross-platform apps using the Dart programming language. It’s been widely embraced by mobile developers and ranked as one of the most loved frameworks in the latest StackOverflow survey. Having taught courses in both Swift UI and Flutter, I’ve seen many similarities between the two.</p></div>', '2020-08-07');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_cart`
 --
 
@@ -79,6 +102,14 @@ CREATE TABLE `tbl_cart` (
   `cart_course_id` varchar(45) NOT NULL,
   `cart_course_price` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_cart`
+--
+
+INSERT INTO `tbl_cart` (`cart_id`, `cart_user_id`, `cart_course_id`, `cart_course_price`) VALUES
+(20, 1, '2', 100),
+(21, 1, '3', 120);
 
 -- --------------------------------------------------------
 
@@ -491,7 +522,9 @@ CREATE TABLE `tbl_wishlist` (
 
 INSERT INTO `tbl_wishlist` (`wishlist_id`, `wishlist_user_id`, `wishlist_course_id`) VALUES
 (1, 1, 3),
-(2, 1, 3);
+(2, 1, 3),
+(3, 1, 2),
+(4, 1, 2);
 
 --
 -- Indexes for dumped tables
@@ -508,6 +541,12 @@ ALTER TABLE `tbl_admin`
 --
 ALTER TABLE `tbl_adminrole`
   ADD PRIMARY KEY (`adminrole_id`);
+
+--
+-- Indexes for table `tbl_blog`
+--
+ALTER TABLE `tbl_blog`
+  ADD PRIMARY KEY (`blog_id`);
 
 --
 -- Indexes for table `tbl_cart`
@@ -610,10 +649,16 @@ ALTER TABLE `tbl_adminrole`
   MODIFY `adminrole_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `tbl_blog`
+--
+ALTER TABLE `tbl_blog`
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tbl_coupon`
@@ -691,7 +736,7 @@ ALTER TABLE `tbl_user_profilelinks`
 -- AUTO_INCREMENT for table `tbl_wishlist`
 --
 ALTER TABLE `tbl_wishlist`
-  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

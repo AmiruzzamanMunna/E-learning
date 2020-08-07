@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\CourseCategory;
 use App\Course;
+use App\Blog;
+use Str;
 use DB;
 
 class UserController extends Controller
@@ -48,11 +50,44 @@ class UserController extends Controller
 
         $allCourses=Course::all();
         $freeCourses=Course::where('course_free_course',1)->get();
+
+        $blogs=Blog::all();
+
+        if(count($blogs)>0){
+
+            $stringCount=0;
+            $strlimit=0;
+
+            $dataBlog=[];
+            foreach($blogs as $item){
+
+                $stringCount=strlen(strip_tags($item->blog_details));
+                $strlimit=$stringCount*3/100;
+
+                $dataBlog[]=[
+
+                    'blog_id'=>$item->blog_id,
+                    'blog_title'=>$item->blog_title,
+                    'blog_image'=>asset('public/assets/Blog/'.$item->blog_image),
+                    'blog_blooger_name'=>$item->blog_blooger_name,
+                    'blog_details'=>Str::limit(strip_tags($item->blog_details), $limit=round($strlimit), '...'),
+                    'blog_date'=>$item->blog_date,
+                ];
+            }
+
+            
+
+        }else{
+
+            $dataBlog=[];
+
+        }
         
         return view('User.index')
                 ->with('allCourses',$allCourses)
                 ->with('freeCourses',$freeCourses)
                 ->with('data',$data)
+                ->with('dataBlog',$dataBlog)
                 ->with('category',$category)
                 ->with('subCategory',$subCategory);
     }
