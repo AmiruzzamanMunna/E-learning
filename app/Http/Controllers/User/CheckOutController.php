@@ -10,6 +10,9 @@ use App\Cart;
 use App\WishList;
 use App\Coupon;
 use App\CourseOrder;
+use App\UserList;
+use App\HomePage;
+use App\Menues;
 use DB;
 
 class CheckOutController extends Controller
@@ -31,9 +34,15 @@ class CheckOutController extends Controller
         WHERE
             subCategory.course_category_parent_id != 0
         ");
-
+        $user=UserList::where('signup_id',$request->session()->get('loggedUser'))->first();
+        $homePage=HomePage::orderBy('homepage_id','desc')->first();
+        $menues=Menues::where('menu_parent_id',0)->get();
+        $submenues=Menues::where('menu_parent_id','>',0)->get();
         return view('User.checkout')
-                
+                ->with('homePage',$homePage)
+                ->with('menues',$menues)
+                ->with('submenues',$submenues)
+                ->with('user',$user)
                 ->with('category',$category)
                 ->with('subCategory',$subCategory);
     }

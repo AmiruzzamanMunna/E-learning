@@ -13,10 +13,9 @@
                 <div class="breadcumb-content">
                     <h2>Blog</h2>
                     <div class="row ml-auto">
-                        <p><a href="{{route('user.index')}}">Home</a></p>
-                        @foreach(Request::segments() as $segment)
-                            <p> <span>// </span><a href="{{$segment}}">{{$segment}}</a></p>
-                        @endforeach
+                        <p><a href="{{route('user.index')}}">Home//</a></p>
+                        <p><a href="{{route('user.allBlog')}}">Blog//</a></p>
+                        <p><a href="{{URL::current()}}">Blog Details</a></p>
                     </div>
 
                 </div>
@@ -37,7 +36,7 @@
             <div class="autor">
                 <p><span>Development</span> / By {{$data->blog_blooger_name}} / {{date('d F, Y',strtotime($data->blog_date))}}</p>
             </div>
-            <div class="like-comment-download d-flex justify-content-between">
+            {{-- <div class="like-comment-download d-flex justify-content-between">
                 <div class="view">
                     <i class="icofont-eye-alt"></i>
                     <span>5620</span>
@@ -50,7 +49,7 @@
                     <i class="icofont-download"></i>
                     <span>5620</span>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="ic-title-bottom-txt">
             <p>{!!$data->blog_details!!}</p>
@@ -87,50 +86,21 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="item">
-                    <div class="ic-blog-page-content">
-                        <img src="assets/images/blog-page.jpg" class="img-fluid" alt="">
-                        <p class="small-title">Development</p>
-                        <h4 id="ic-hover-color"><a href="">Why Swift UI Should Be on the
-                                Radar of Every Mobile Developer</a></h4>
-                        <p class="author">By Jacqueline Wagner / 10 June, 2020</p>
+            @forelse ($relatedBlog as $item)
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="item">
+                        <div class="ic-blog-page-content">
+                            <img src="{{asset('public/assets/Blog')}}/{{$item->blog_image}}" class="img-fluid" alt="">
+                            <p class="small-title">{{$item->course_category_name}}</p>
+                            <h4 id="ic-hover-color"><a href="{{route('user.blogDetails',$item->blog_id)}}">{{$item->blog_title}}</a></h4>
+                            <p class="author">Post By {{$item->blog_blooger_name}} / {{date('d F, Y',strtotime($item->blog_date))}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="item">
-                    <div class="ic-blog-page-content">
-                        <img src="assets/images/blog-page.jpg" class="img-fluid" alt="">
-                        <p class="small-title">Development</p>
-                        <h4><a href="">Why Swift UI Should Be on the
-                                Radar of Every Mobile Developer</a></h4>
-                        <p class="author">By Jacqueline Wagner / 10 June, 2020</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="item">
-                    <div class="ic-blog-page-content">
-                        <img src="assets/images/blog-page.jpg" class="img-fluid" alt="">
-                        <p class="small-title">Development</p>
-                        <h4><a href="">Why Swift UI Should Be on the
-                                Radar of Every Mobile Developer</a></h4>
-                        <p class="author">By Jacqueline Wagner / 10 June, 2020</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="item">
-                    <div class="ic-blog-page-content">
-                        <img src="assets/images/blog-page.jpg" class="img-fluid" alt="">
-                        <p class="small-title">Development</p>
-                        <h4><a href="">Why Swift UI Should Be on the
-                                Radar of Every Mobile Developer</a></h4>
-                        <p class="author">By Jacqueline Wagner / 10 June, 2020</p>
-                    </div>
-                </div>
-            </div>
+            @empty
+            <h2 style="color: #ff6b1b">Sorry No content is Available</h2>
+            @endforelse
+            
         </div>
 
     </div>

@@ -2,6 +2,17 @@
 @section('title')
     Module Edit
 @endsection
+@section('script')
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>  
+  <script>
+  $(document).ready(function() {
+        $('.summernote').summernote({
+          height:400,
+        });
+    });
+</script>
+@endsection
 @section('content')
 
 <div class="container">
@@ -29,7 +40,7 @@
     
                 <div class="form-group">
                     <label for="">Short Discription</label><br><br><br>
-                    <textarea name="description" value="" cols="48" rows="10">{{$data->course_module_description}}</textarea>  
+                    <textarea class="summernote" name="description" value="" cols="48" rows="10">{!!$data->course_module_description!!}</textarea>  
                                  
                 </div>
                 <div class="form-group">

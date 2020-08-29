@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\UserList;
 use App\CourseCategory;
+use App\HomePage;
+use App\Menues;
 use DB;
+use Redirect;
 
 class LoginController extends Controller
 {
@@ -28,7 +31,13 @@ class LoginController extends Controller
         WHERE
             subCategory.course_category_parent_id != 0
         ");
+        $homePage=HomePage::orderBy('homepage_id','desc')->first();
+        $menues=Menues::where('menu_parent_id',0)->get();
+        $submenues=Menues::where('menu_parent_id','>',0)->get();
         return view('User.login')
+                ->with('homePage',$homePage)
+                ->with('menues',$menues)
+                ->with('submenues',$submenues)
                 ->with('category',$category)
                 ->with('subCategory',$subCategory);
     }
@@ -36,11 +45,14 @@ class LoginController extends Controller
     {
         $data=UserList::where('signup_email',$request->email)->first();
 
+        $url=$request->url;
+        
+
         if($data && Hash::check($request->password, $data->signup_password)){
 
             $request->session()->put('loggedUser',$data->signup_id);
 
-            return redirect()->route('user.index');
+            return Redirect::to($url);
 
         }else{
 

@@ -15,10 +15,9 @@
                         <h2>Courses Enroll</h2>
 
                         <div class="row ml-auto">
-                            <p><a href="{{route('user.index')}}">Home</a></p>
-                            @foreach(Request::segments() as $segment)
-                                <p> <span>// </span><a href="{{$segment}}">{{$segment}}</a></p>
-                            @endforeach
+                            <p><a href="{{route('user.index')}}">Home//</a></p>
+                            <p><a href="{{route('user.userProfile')}}">Profile//</a></p>
+                            <p><a href="{{route('user.enrollHistory')}}">Enroll History</a></p>
                         </div>
                         
 
@@ -37,20 +36,20 @@
                         </div>
                     </div>
                     <div class="offset-lg-3 col-lg-3 col-md-4">
-                        <select>
+                        <select id="keyword_id" onchange="keyWordFiltering()">
                             <option value="0">Short By Keyword Here</option>
-                            <option value="1">Another Option</option>
-                            <option value="2">Another Option</option>
-                            <option value="4">Another Option</option>
+                            @foreach ($keywordSort as $item)
+                                <option value="{{$item->course_id}}">{{$item->course_name}}</option>
+                            @endforeach
                         </select>
 
                     </div>
                     <div class="col-md-4 col-lg-3">
-                        <select>
+                        <select id="category_id" onchange="categoryFiltering()">
                             <option value="0">Filter By Categories</option>
-                            <option value="1">Another Option</option>
-                            <option value="2">Another Option</option>
-                            <option value="4">Another Option</option>
+                            @foreach ($keywordSort as $item)
+                                <option value="{{$item->course_category_id}}">{{$item->course_category_name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -59,7 +58,7 @@
     </section>
     <!--Enroll Area Start -->
     <section class="ic-enroll-history-area">
-        <div class="container">
+        <div class="container" id="showdata">
             @foreach ($data as $item)
             <div class="ic-enroll-history-warper">
                 <div class="row">
@@ -114,4 +113,161 @@
 
         </div>
     </section>
+    <script>
+
+        function keyWordFiltering(){
+
+            let keyword_id=$("#keyword_id").val();
+            
+            $.ajax({
+
+                type:'get',
+                url:"{{route('user.keyWordFiltering')}}",
+                data:{
+
+                    id:keyword_id,
+                },
+                success:function(data){
+
+                    console.log(data);
+                    var html='';
+
+                    if(data.data.length>0){
+
+                        for($i=0;$i<data.data.length;$i++){
+
+                            $item=data.data[$i];
+                            html+='<div class="ic-enroll-history-warper">';
+                            html+='<div class="row">';
+                            html+='<div class="col-md-5">';
+                            html+='<div class="ic-enroll-title">';
+                            html+='<div class="row">';
+                            html+='<div class="col-sm-3">';
+                            html+='<div class="image">';
+                            html+='<img src="'+$item.image+'" class="img-fluid" alt="">';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='<div class="col-sm-9 col-ic-pl-0">';
+                            html+='<div class="title">';
+                            html+='<h4>'+$item.course_name+'</h4>';
+                            html+='<p>'+$item.course_authorname+'</p>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='<div class="col-md-2 col-sm-4 offset-lg-1 my-auto">';
+                            html+='<div class="price">';
+                            html+='<p>$'+$item.order_amount+'</p>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='<div class="col-md-2 col-sm-4 my-auto">';
+                            html+='<div class="date">';
+                            html+='<span>Enroll</span>';
+                            html+='<p>'+$item.order_date+'</p>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='<div class="col-md-2 col-sm-4 my-auto">';
+                            html+='<button type="button" class="ic-start-now-btn"><a style="color: white;text-decoration:none" href="'+$item.link+'">Start Now</a></button>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='</div>';
+
+                        }
+
+                    }else{
+
+                        html+='<h2 style="color: #ff6b1b">Sorry No Course Content is Available</h2>'
+
+                    }
+                    
+                    
+                    
+                    
+                    $("#showdata").html(html);
+                   
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
+        }
+        function categoryFiltering(){
+
+            let keyword_id=$("#category_id").val();
+            
+            $.ajax({
+
+                type:'get',
+                url:"{{route('user.categoryFiltering')}}",
+                data:{
+
+                    id:keyword_id,
+                },
+                success:function(data){
+
+                    console.log(data);
+                    var html='';
+
+                    if(data.data.length>0){
+
+                        for($i=0;$i<data.data.length;$i++){
+
+                            $item=data.data[$i];
+                            html+='<div class="ic-enroll-history-warper">';
+                            html+='<div class="row">';
+                            html+='<div class="col-md-5">';
+                            html+='<div class="ic-enroll-title">';
+                            html+='<div class="row">';
+                            html+='<div class="col-sm-3">';
+                            html+='<div class="image">';
+                            html+='<img src="'+$item.image+'" class="img-fluid" alt="">';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='<div class="col-sm-9 col-ic-pl-0">';
+                            html+='<div class="title">';
+                            html+='<h4>'+$item.course_name+'</h4>';
+                            html+='<p>'+$item.course_authorname+'</p>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='<div class="col-md-2 col-sm-4 offset-lg-1 my-auto">';
+                            html+='<div class="price">';
+                            html+='<p>$'+$item.order_amount+'</p>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='<div class="col-md-2 col-sm-4 my-auto">';
+                            html+='<div class="date">';
+                            html+='<span>Enroll</span>';
+                            html+='<p>'+$item.order_date+'</p>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='<div class="col-md-2 col-sm-4 my-auto">';
+                            html+='<button type="button" class="ic-start-now-btn"><a style="color: white;text-decoration:none" href="'+$item.link+'">Start Now</a></button>';
+                            html+='</div>';
+                            html+='</div>';
+                            html+='</div>';
+
+                        }
+
+                    }else{
+
+                        html+='<h2 style="color: #ff6b1b">Sorry No Course Content is Available</h2>'
+
+                    }
+                    
+                    
+                    
+                    
+                    $("#showdata").html(html);
+                   
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
+        }
+    </script>
 @endsection

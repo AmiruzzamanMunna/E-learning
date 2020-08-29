@@ -5,15 +5,16 @@
 @section('container')
 
 <div class="ic-container">
-    <section class="ic-banner-area d-flex align-items-center" style="background-image: url(public/assets/images/banner-bg.jpg)">
+    <section class="ic-banner-area d-flex align-items-center" style="background-image: url(public/assets/Home/{{$homePage->homePage_header_image}})">
         <div class="container">
             <div class="ic-banner-content">
-                <h1>You can learn anything
-                    for bright future</h1>
-                <p>Anywhere, anytime. Start learning today!</p>
+                <h1>{{$homePage->homePage_header_title}}</h1>
+                <p>{{$homePage->homepage_header_paragraph}}</p>
                 <div class="banner-search">
-                    <input type="text" name="search" placeholder="search what do you learn">
-                    <i class="icofont-search"></i>
+                    <form action="{{route('user.courseSearch')}}">
+                        <input type="text" name="search" placeholder="search what do you learn">
+                        <i class="icofont-search"></i>
+                    </form>
                 </div>
             </div>
         </div>
@@ -125,7 +126,7 @@
 
         <div class="row">
             <!--item 1-->
-            @foreach ($allCourses as $item)
+            @foreach ($bestSelling as $key=>$item)
             <div class="col-md-3 col-sm-6  all  best ic-col-mb">
                 <div class="ic-course-content">
                     <img src="{{asset('public/assets/images/Course')}}/{{$item->course_image}}" style="max-height: 205px" class="img-fluid" alt="">
@@ -134,16 +135,26 @@
                         <p>{{$item->course_authorname}}</p>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <div class="ratng">
-                            <i class="icofont-star"></i>
-                            <i class="icofont-star"></i>
-                            <i class="icofont-star"></i>
-                            <i class="icofont-star"></i>
-                            <i class="icofont-star"></i>
-                            <span><span class="color">4.8</span> (22,225)</span>
+                        {{-- {{dd($bestSellingRatingsEachRatings)}} --}}
+                        <div class="rating">
+                            @if ($bestSellingRatingsEachRatings[$key]['ratings']!=0)
+                                
+                                @for($i=0;$i<$bestSellingRatingsEachRatings[$key]['ratings'];$i++)
+                                    <i class="icofont-star" style="color:#ff6b1b"></i>
+                                @endfor
+                                
+                            @else
+                                <i style="color:#333333" class="icofont-star"></i>
+                                <i style="color:#333333" class="icofont-star"></i>
+                                <i style="color:#333333" class="icofont-star"></i>
+                                <i style="color:#333333" class="icofont-star"></i>
+                                <i style="color:#333333" class="icofont-star"></i>
+
+                            @endif
+                            <span><span class="color">{{$bestSellingRatingsEachRatings[$key]['ratings']}}</span> ({{$bestSellingRatingsEachRatings[$key]['totaluser']}} Ratings)</span>
                         </div>
                         <div class="time">
-                            <p>8Hrs</p>
+                            <p>{{$item->course_credithour}}Hrs</p>
                         </div>
                     </div>
                     <div class="price">
@@ -155,7 +166,8 @@
                 </div>
             </div>
             @endforeach
-            @foreach ($allCourses as $item)
+  
+            @foreach ($featuredCourse as $key=>$item)
             <div class="col-md-3 col-sm-6  all top featured">
                 <div class="ic-course-content">
                     <img src="{{asset('public/assets/images/Course')}}/{{$item->course_image}}" style="max-height: 205px" class="img-fluid" alt="">
@@ -164,16 +176,25 @@
                         <p>{{$item->course_authorname}}</p>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <div class="ratng">
-                            <i class="icofont-star"></i>
-                            <i class="icofont-star"></i>
-                            <i class="icofont-star"></i>
-                            <i class="icofont-star"></i>
-                            <i class="icofont-star"></i>
-                            <span><span class="color">4.8</span> (22,225)</span>
+                        <div class="rating">
+                            @if ($featuredEachRatings[$key]['ratings']!=0)
+                                
+                                @for($i=0;$i<$featuredEachRatings[$key]['ratings'];$i++)
+                                    <i class="icofont-star" style="color:#ff6b1b"></i>
+                                @endfor
+                                
+                            @else
+                                <i style="color:#333333" class="icofont-star"></i>
+                                <i style="color:#333333" class="icofont-star"></i>
+                                <i style="color:#333333" class="icofont-star"></i>
+                                <i style="color:#333333" class="icofont-star"></i>
+                                <i style="color:#333333" class="icofont-star"></i>
+
+                            @endif
+                            <span><span class="color">{{$featuredEachRatings[$key]['ratings']}}</span> ({{$featuredEachRatings[$key]['totaluser']}} Ratings)</span>
                         </div>
                         <div class="time">
-                            <p>8Hrs</p>
+                            <p>{{$item->course_credithour}}Hrs</p>
                         </div>
                     </div>
                     <div class="price">
@@ -186,7 +207,7 @@
             </div>
             @endforeach
             
-            @foreach ($freeCourses as $item)
+            @foreach ($freeCourses as $key=>$item)
             <div class="col-md-3 col-sm-6  all free">
                 <div class="ic-course-content">
                     <img src="{{asset('public/assets/images/Course')}}/{{$item->course_image}}" style="max-height: 205px" class="img-fluid" alt="">
@@ -195,20 +216,30 @@
                         <p>{{$item->course_authorname}}</p>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <div class="ratng">
-                            <i class="icofont-star"></i>
-                            <i class="icofont-star"></i>
-                            <i class="icofont-star"></i>
-                            <i class="icofont-star"></i>
-                            <i class="icofont-star"></i>
-                            <span><span class="color">4.8</span> (22,225)</span>
+                        <div class="rating">
+                            @if ($allFreeRatings[$key]['ratings']!=0)
+                                
+                                @for($i=0;$i<$allFreeRatings[$key]['ratings'];$i++)
+                                    <i class="icofont-star" style="color:#ff6b1b"></i>
+                                @endfor
+                                
+                            @else
+                                <i style="color:#333333" class="icofont-star"></i>
+                                <i style="color:#333333" class="icofont-star"></i>
+                                <i style="color:#333333" class="icofont-star"></i>
+                                <i style="color:#333333" class="icofont-star"></i>
+                                <i style="color:#333333" class="icofont-star"></i>
+
+                            @endif
+                            <span><span class="color">{{$allFreeRatings[$key]['ratings']}}</span> ({{$allFreeRatings[$key]['totaluser']}} Ratings)</span>
                         </div>
                         <div class="time">
-                            <p>8Hrs</p>
+                            <p>{{$item->course_credithour}}Hrs</p>
                         </div>
                     </div>
                     <div class="price">
-                        <p>${{$item->course_price}}<p>
+
+                        <p><s>${{$item->course_price}}</s> Free<p>
                     </div>
                 </div>
                 <div class="ic-course-top-title">
@@ -241,13 +272,22 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="ic-get-start-left">
-                    <img src="{{asset('public')}}/assets/images/learn.png" class="img-fluid" alt="">
+                    <img src="{{asset('public/assets/Home')}}/{{$homePage->homepage_middle_image}}" class="img-fluid" alt="">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="ic-get-start-right">
-                    <h2>Become a expert with us. <span>Learn From Anywhere</span> </h2>
-                    <p>Take classes on the go with the Skillshare app. Stream or download to watch on the plane, the subway, or wherever you learn best.</p>
+                    @php
+                        $string=$homePage->homePage_middle_title;
+                        $explode=explode('.',$string);
+                        $explodeString1=$explode[0];
+                        $explodeString2=$explode[1];
+                       
+                    @endphp
+
+                    
+                    <h2>{{$explodeString1}}. <span>{{$explodeString2}}</span> </h2>
+                    <p>{{$homePage->homepage_middle_paragraph}}</p>
                     <button><a href="#">get start now</a></button>
                 </div>
             </div>

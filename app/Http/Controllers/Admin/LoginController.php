@@ -7,18 +7,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Admin;
 use App\AdminRole;
+use App\AdminLoginPage;
 use App\RolePermission;
 
 class LoginController extends Controller
 {
     public function loginAdmin(Request $request)
     {
-        return view('Admin.login');
+        $data=AdminLoginPage::orderBy('admin_login_page_id','desc')->first();
+        return view('Admin.login')
+                ->with('data',$data);
     }
     public function loginAdminCheck(Request $request)
     {
         $email=$request->email;
-        $pass=$request->pass;
+        $pass=$request->password;
+
+        $request->validate([
+            'email'=>'required',
+            'password'=>'required',
+        ]);
 
         $data=Admin::where('admin_email',$email)->first();
 
@@ -219,6 +227,76 @@ class LoginController extends Controller
                     $request->session()->put('moduledelete',$val->role_permission_per_id);
                     
                 }
+                if($val->role_permission_per_id==48){
+
+                    $request->session()->put('orderactive',$val->role_permission_per_id);
+                    
+                }
+                if($val->role_permission_per_id==49){
+
+                    $request->session()->put('orderdelete',$val->role_permission_per_id);
+                    
+                }
+                if($val->role_permission_per_id==51){
+
+                    $request->session()->put('Blogadd',$val->role_permission_per_id);
+                    
+                }
+                if($val->role_permission_per_id==52){
+
+                    $request->session()->put('Blogedit',$val->role_permission_per_id);
+                    
+                }
+                if($val->role_permission_per_id==53){
+
+                    $request->session()->put('Blogdelete',$val->role_permission_per_id);
+                    
+                }
+                if($val->role_permission_per_id==54){
+
+                    $request->session()->put('Bloglist',$val->role_permission_per_id);
+                    
+                }
+                if($val->role_permission_per_id==56){
+
+                    $request->session()->put('loginlist',$val->role_permission_per_id);
+                    
+                }
+                if($val->role_permission_per_id==57){
+
+                    $request->session()->put('loginadd',$val->role_permission_per_id);
+                    
+                }
+                if($val->role_permission_per_id==58){
+
+                    $request->session()->put('loginedit',$val->role_permission_per_id);
+                    
+                }
+                if($val->role_permission_per_id==59){
+
+                    $request->session()->put('logindelete',$val->role_permission_per_id);
+                    
+                }
+                if($val->role_permission_per_id==61){
+
+                    $request->session()->put('homepagelist',$val->role_permission_per_id);
+                    
+                }
+                if($val->role_permission_per_id==62){
+
+                    $request->session()->put('homepageadd',$val->role_permission_per_id);
+                    
+                }
+                if($val->role_permission_per_id==63){
+
+                    $request->session()->put('homepageedit',$val->role_permission_per_id);
+                    
+                }
+                if($val->role_permission_per_id==64){
+
+                    $request->session()->put('homepagedelete',$val->role_permission_per_id);
+                    
+                }
 
                 
             }
@@ -228,11 +306,11 @@ class LoginController extends Controller
             $request->session()->put('permission',$permission);
             
 
-            return response()->json(array('status'=>'success'));
+            return redirect()->route('admin.index');
 
         }else{
-
-            return response()->json(array('status'=>'error'));
+            $request->session()->flash('message','Invalid login Details');
+            return redirect()->back();
         }
 
     }

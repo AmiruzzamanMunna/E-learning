@@ -1,0 +1,508 @@
+/*----------------------------------------------------
+@File: Default Styles
+@Author: Rocky Ahmed
+@URL: http://wethemez.com
+Author E-mail: rockybd1995@gmail.com
+
+This file contains the styling for the actual theme, this
+is the file you need to edit to change the look of the
+theme.
+---------------------------------------------------- */
+/*=====================================================================
+@Template Name: Login Form
+@Author: Rocky Ahmed
+@Developed By: Rocky Ahmed
+@Developer URL: http://rocky.wethemez.com 
+Author E-mail: rockybd1995@gmail.com
+
+@Default Styles
+
+Table of Content: 
+01/ Variables
+02/ predefin
+03/ header
+04/ button
+05/ banner
+06/ breadcrumb
+07/ about
+08/ team
+09/ project 
+10/ price 
+11/ team 
+12/ blog 
+13/ video  
+14/ features  
+15/ career  
+16/ contact 
+17/ footer
+
+=====================================================================*/
+/*----------------------------------------------------*/
+/*font Variables*/
+/*Color Variables*/
+/*=================== fonts ====================*/
+@import url("https://fonts.googleapis.com/css?family=Karla:400,400i,700");
+/*---------------------------------------------------- */
+/*----------------------------------------------------*/
+.list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.row.m0 {
+  margin: 0px;
+}
+
+body {
+  line-height: 30px;
+  font-size: 18px;
+  font-family: "Karla", sans-serif;
+  font-weight: normal;
+  color: #a1a1a1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Karla", sans-serif;
+  font-weight: bold;
+}
+
+i:before {
+  margin-left: 0px !important;
+}
+
+button:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.m0 {
+  margin: 0px;
+}
+
+.p0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.p_100 {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.pad_top {
+  padding-top: 100px;
+}
+
+.pad_btm {
+  padding-bottom: 100px;
+}
+
+.bg_gray {
+  background: #f4f0ef;
+}
+
+.body_color {
+  background: #eeeff1;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* Main Title Area css
+============================================================================================ */
+/* End Main Title Area css
+============================================================================================ */
+/*---------------------------------------------------- */
+/*----------------------------------------------------*/
+/* Login Form Area css
+============================================================================================ */
+.ic_main_form_area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  vertical-align: middle;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.ic_main_form_area:before {
+  content: '';
+  background-size: contain;
+  max-width: 376px;
+  width: 100%;
+  position: absolute;
+  left: 90px;
+  top: 0%;
+  height: 100%;
+}
+
+.ic_main_form_area .container {
+  vertical-align: middle;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+
+.ic_main_form_inner {
+  background: #fff;
+  -webkit-box-shadow: 2px 3.464px 14.72px 1.28px rgba(16, 16, 16, 0.15);
+  box-shadow: 2px 3.464px 14.72px 1.28px rgba(16, 16, 16, 0.15);
+}
+
+.ic_main_form_inner .form_img {
+  overflow: hidden;
+}
+
+.ic_main_form_inner .form_box {
+  max-width: 460px;
+  text-align: center;
+  margin: auto;
+  vertical-align: middle;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+
+.ic_main_form_inner .form_box img {
+  margin-bottom: 25px;
+}
+
+.ic_main_form_inner .form_box p {
+  font-size: 16px;
+  line-height: 24px;
+  color: #000;
+  font-family: "Karla", sans-serif;
+  margin-bottom: 50px;
+}
+
+.ic_main_form_inner .form_box .login_form {
+  max-width: 430px;
+  margin: auto;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group {
+  margin-bottom: 20px;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group input {
+  font-family: "Karla", sans-serif;
+  padding: 0px 15px 0px 50px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: #fafefd;
+  border-color: #fafefd;
+  -webkit-box-shadow: 1px 1.732px 7.68px 0.32px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1.732px 7.68px 0.32px rgba(0, 0, 0, 0.05);
+  height: 50px;
+  border-radius: 0px;
+  position: relative;
+  font-size: 16px;
+  color: #a1a1a1;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group input.placeholder {
+  font-size: 16px;
+  color: #a1a1a1;
+  font-family: "Karla", sans-serif;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group input:-moz-placeholder {
+  font-size: 16px;
+  color: #a1a1a1;
+  font-family: "Karla", sans-serif;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group input::-moz-placeholder {
+  font-size: 16px;
+  color: #a1a1a1;
+  font-family: "Karla", sans-serif;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group input::-webkit-input-placeholder {
+  font-size: 16px;
+  color: #a1a1a1;
+  font-family: "Karla", sans-serif;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group input:focus {
+  color: #006a4e;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group input:focus ~ i {
+  color: #006a4e;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group i {
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.ic_main_form_inner .form_box .login_form .form-group.remember {
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 22px;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group.remember input {
+  height: 0px;
+  padding: 0px;
+  width: 0px;
+  display: none;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group.remember label {
+  margin-bottom: 0px;
+  color: #000;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: "Karla", sans-serif;
+  position: relative;
+  top: 1px;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group.remember a {
+  text-align: right;
+  float: right;
+  color: #000;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group p span {
+  color: #006a4e;
+}
+
+.ic_main_form_inner .form_box .login_form .form-group .submit_btn {
+  margin-top: 10px;
+}
+
+.login_social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.login_social li {
+  margin-right: 10px;
+}
+
+.login_social li:last-child {
+  margin-right: 0px;
+}
+
+.login_social li a {
+  background: #000;
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  display: inline-block;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  text-align: center !important;
+  position: relative;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+}
+
+.login_social li a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #006a4e;
+  -webkit-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 50%;
+  -ms-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.login_social li a:hover:before {
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.submit_btn {
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  border-radius: 0px;
+  height: 50px;
+  font-size: 16px;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  position: relative;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+}
+
+.submit_btn:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #006a4e;
+  -webkit-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 50%;
+  -ms-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.submit_btn:hover, .submit_btn:focus {
+  color: #fff;
+}
+
+.submit_btn:hover:before, .submit_btn:focus:before {
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.styled-checkbox {
+  position: absolute;
+  opacity: 0;
+  height: 0px;
+}
+
+.styled-checkbox + label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+
+.styled-checkbox + label:before {
+  content: "";
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 16px;
+  height: 16px;
+  background: #a1a1a1;
+  position: relative;
+  top: 1px;
+}
+
+.styled-checkbox:hover + label:before {
+  background: #006a4e;
+}
+
+.styled-checkbox:focus + label:before {
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+}
+
+.styled-checkbox:checked + label:before {
+  background: #006a4e;
+}
+
+.styled-checkbox:disabled + label {
+  color: #acacac;
+  cursor: auto;
+}
+
+.styled-checkbox:disabled + label:before {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: #ddd;
+}
+
+.styled-checkbox:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 13px;
+  background: white;
+  width: 2px;
+  height: 2px;
+  -webkit-box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white,
+ 4px -6px 0 white, 4px -8px 0 white;
+  box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white,
+ 4px -6px 0 white, 4px -8px 0 white;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  opacity: 1;
+}
+
+/* End Login Form Area css
+============================================================================================ */
+/*---------------------------------------------------- */
+
+/*# sourceMappingURL=style.css.map */

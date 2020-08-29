@@ -2,6 +2,17 @@
 @section('title')
     Course Add
 @endsection
+@section('script')
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>  
+  <script>
+  $(document).ready(function() {
+        $('.summernote').summernote({
+          height:400,
+        });
+    });
+</script>
+@endsection
 @section('content')
 
 <div class="container">
@@ -53,7 +64,7 @@
             </div>
             <div class="form-group">
                 <label for="">Course Description</label><br><br>
-                <textarea name="" id="coursedescription" cols="48" rows="10"></textarea>  
+                <textarea class="summernote" name="" id="coursedescription" cols="48" rows="10"></textarea>  
                 <p id="pdes" style="color: red">This field is required</p>             
             </div>
             <div class="form-group">
@@ -65,7 +76,7 @@
             </div>
             <div class="form-group">
                 <label for="">Course Requirement</label><br><br>
-                <textarea name="" id="courserequire" cols="48" rows="10"></textarea>  
+                <textarea class="summernote" name="" id="courserequire" cols="48" rows="10"></textarea>  
                 <p id="preq" style="color: red">This field is required</p>             
             </div>
             <div class="form-group">

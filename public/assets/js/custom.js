@@ -14,8 +14,8 @@ function myLoadFunction() {
 
 
 
-$('#addButton').click(function () {
-    $('#customer_records').clone().appendTo('.customer_records_dynamic');
+$('.extra-fields-customer').click(function () {
+    $('.customer_records').clone().appendTo('.customer_records_dynamic');
     $('.customer_records_dynamic .customer_records').addClass('single remove');
     $('.single .extra-fields-customer').remove();
     $('.single').append('<a  class="remove-field btn-remove-customer"><i class="icofont-minus"></i></a>');
@@ -23,8 +23,8 @@ $('#addButton').click(function () {
 
     $('.customer_records_dynamic input').each(function () {
         var count = 0;
-        //var fieldname = $(this).attr("name");
-        //$(this).attr('name', fieldname + count);
+        var fieldname = $(this).attr("name");
+        $(this).attr('name', fieldname + count);
         count++;
     });
 
@@ -369,9 +369,9 @@ $(document).ready(function () {
         if (count == 3) {
             $("#ic-owl-category .owl-next").hide();
             $(".ic-course-view-detais").show();
-            $(".owl-nav").css('right','130px');
-            
-            
+            $(".owl-nav").css('right', '130px');
+
+
         }
 
     });
@@ -380,13 +380,13 @@ $(document).ready(function () {
 $(document).ready(function () {
     var count = 0;
     $('#ic-owl-blog1 .owl-next').click(function () {
-        
+
         count = count + 1;
         if (count == 3) {
             $("#ic-owl-blog1 .owl-next").hide();
             $("#ic-blog-view1").show();
-            $("#ic-owl-blog1 .owl-nav").css('right','130px');
-            
+            $("#ic-owl-blog1 .owl-nav").css('right', '130px');
+
         }
 
     });
@@ -396,12 +396,12 @@ $(document).ready(function () {
 $(document).ready(function () {
     var count = 0;
     $('#ic-owl-blog2 .owl-next').click(function () {
-        
+
         count = count + 1;
         if (count == 3) {
             $("#ic-owl-blog2 .owl-next").hide();
             $("#ic-blog-view2").show();
-           $("#ic-owl-blog2 .owl-nav").css('right','130px');
+            $("#ic-owl-blog2 .owl-nav").css('right', '130px');
         }
 
     });
@@ -410,12 +410,12 @@ $(document).ready(function () {
 $(document).ready(function () {
     var count = 0;
     $('#ic-owl-blog3 .owl-next').click(function () {
-      
+
         count = count + 1;
         if (count == 3) {
             $("#ic-owl-blog3 .owl-next").hide();
             $("#ic-blog-view3").show();
-           $("#ic-owl-blog3 .owl-nav").css('right','130px');
+            $("#ic-owl-blog3 .owl-nav").css('right', '130px');
         }
 
     });
@@ -424,12 +424,12 @@ $(document).ready(function () {
 $(document).ready(function () {
     var count = 0;
     $('#ic-owl-blog4 .owl-next').click(function () {
-      
+
         count = count + 1;
         if (count == 3) {
             $("#ic-owl-blog4 .owl-next").hide();
             $("#ic-blog-view4").show();
-           $("#ic-owl-blog4 .owl-nav").css('right','130px');
+            $("#ic-owl-blog4 .owl-nav").css('right', '130px');
         }
 
     });
@@ -438,12 +438,12 @@ $(document).ready(function () {
 $(document).ready(function () {
     var count = 0;
     $('#ic-owl-blog5 .owl-next').click(function () {
-      
+
         count = count + 1;
         if (count == 3) {
             $("#ic-owl-blog5 .owl-next").hide();
             $("#ic-blog-view5").show();
-           $("#ic-owl-blog5 .owl-nav").css('right','130px');
+            $("#ic-owl-blog5 .owl-nav").css('right', '130px');
         }
 
     });
@@ -456,25 +456,43 @@ $(document).ready(function () {
 });
 
 
+
+function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('check')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+
 /**Course filtering**/
 
 
-$(document).ready(function(){
-  $('.category-button').click(function(){
-    $('.category-button').removeClass("ic-course-active");
-    $(this).addClass("ic-course-active");
-});
+$(document).ready(function () {
+    $('.category-button').click(function () {
+        $('.category-button').removeClass("ic-course-active");
+        $(this).addClass("ic-course-active");
+    });
 });
 
 /**Active Demo Content**/
 
-$(document).ready(function(){
-  $('.ic-demo-content-body-warper').click(function(){
-    $('.ic-demo-content-body-warper').removeClass("demo-content-active");
-      $('.icon').css('display','none');
-    $(this).addClass("demo-content-active");
+$(document).ready(function () {
+    $('.ic-demo-content-body-warper').click(function () {
+        $('.ic-demo-content-body-warper').removeClass("demo-content-active");
+        $(this).addClass("demo-content-active");
+        
+       
+    });
 });
-});
+
+
+/**Audio player**/
+
+
+
+/**Active demo lock icon hide**/
+
+
 
 
 
@@ -499,6 +517,99 @@ $(document).ready(function () {
     });
 
 });
+
+/**Online-test**/
+
+$(document).ready(function () {
+    // $("#ic-test-question-btn1").click(function () {
+    //     $("#ic-modal").show();
+    // });
+
+    $(".question-next1").click(function () {
+
+        $("#online-test1").hide();
+        $("#online-test3").hide();
+        $("#online-test2").fadeIn(500);
+        $("#online-test2").show();
+        $("#ic-modal").hide();
+
+
+    });
+
+
+
+});
+
+$(document).ready(function () {
+    $("#ic-test-question-btn2").click(function () {
+        $("#ic-modal").hide();
+        $("#ic-modal2").show();
+
+    });
+    $(".question-next2").click(function () {
+
+        $("#online-test1").hide();
+        $("#online-test2").hide();
+        $("#online-test3").fadeIn(500);
+        $("#online-test3").show();
+        $("#ic-modal").hide();
+        $("#ic-modal2").hide();
+
+
+    });
+    $("#ic-test-question-btn3").click(function () {
+
+        $("#ic-modal3").show();
+
+    });
+
+});
+
+$(document).ready(function () {
+    $("#ic-test-question-btn2").click(function () {
+        $("#ic-modal").show();
+
+    })
+
+
+})
+
+
+
+/**Conatct File Upload**/
+
+Array.prototype.forEach.call(
+  document.querySelectorAll(".file-upload__button"),
+  function(button) {
+    const hiddenInput = button.parentElement.querySelector(
+      ".file-upload__input"
+    );
+    const label = button.parentElement.querySelector(".file-upload__label");
+    const defaultLabelText = "Upload JPEG,JPG,PDF File Formate ";
+
+    // Set default text for label
+    label.textContent = defaultLabelText;
+    label.title = defaultLabelText;
+
+    button.addEventListener("click", function() {
+      hiddenInput.click();
+    });
+
+    hiddenInput.addEventListener("change", function() {
+      const filenameList = Array.prototype.map.call(hiddenInput.files, function(
+        file
+      ) {
+        return file.name;
+      });
+
+      label.textContent = filenameList.join(", ") || defaultLabelText;
+      label.title = label.textContent;
+    });
+  }
+);
+
+
+
 
 
 /**Scroll Top**/

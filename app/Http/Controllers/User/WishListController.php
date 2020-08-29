@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use App\CourseCategory;
 use App\Course;
 use App\WishList;
+use App\UserList;
 use App\Cart;
+use App\HomePage;
+use App\Menues;
 use DB;
 
 class WishListController extends Controller
@@ -29,9 +32,15 @@ class WishListController extends Controller
         WHERE
             subCategory.course_category_parent_id != 0
         ");
-
+        $user=UserList::where('signup_id',$request->session()->get('loggedUser'))->first();
+        $homePage=HomePage::orderBy('homepage_id','desc')->first();
+        $menues=Menues::where('menu_parent_id',0)->get();
+        $submenues=Menues::where('menu_parent_id','>',0)->get();
         return view('User.wishlist')
-                
+                ->with('menues',$menues)
+                ->with('submenues',$submenues)
+                ->with('homePage',$homePage)
+                ->with('user',$user)
                 ->with('category',$category)
                 ->with('subCategory',$subCategory);
     }

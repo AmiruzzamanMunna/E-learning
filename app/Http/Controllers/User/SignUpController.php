@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\UserList;
 use App\CourseCategory;
+use App\HomePage;
+use App\Menues;
 use DB;
 
 class SignUpController extends Controller
@@ -28,7 +30,15 @@ class SignUpController extends Controller
         WHERE
             subCategory.course_category_parent_id != 0
         ");
+        $user=UserList::where('signup_id',$request->session()->get('loggedUser'))->first();
+        $homePage=HomePage::orderBy('homepage_id','desc')->first();
+        $menues=Menues::where('menu_parent_id',0)->get();
+        $submenues=Menues::where('menu_parent_id','>',0)->get();
         return view('User.signup')
+                ->with('homePage',$homePage)
+                ->with('menues',$menues)
+                ->with('submenues',$submenues)
+                ->with('user',$user)
                 ->with('category',$category)
                 ->with('subCategory',$subCategory);
     }
@@ -55,6 +65,7 @@ class SignUpController extends Controller
             $data->signup_address=$address;
             $data->signup_phonum=$phnnum;
             $data->signup_password=Hash::make($password);
+            $data->signup_social_type=0;
             $data->save();
         
             return response()->json(array('status'=>'success'));

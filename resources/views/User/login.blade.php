@@ -28,6 +28,7 @@
                                 <div class="form-group ic-form-group">
                                     <input type="email" class="form-control" name="email" placeholder="User Name or Email Address">
                                     <i class="icofont-user-alt-4"></i>
+                                    <input type="hidden" name="url" value="{{URL::previous()}}">
                                 </div>
                                 <div class="form-group ic-form-group form-group-password">
                                     <input type="password" name="password" class="form-control" placeholder="Password">
@@ -56,7 +57,7 @@
                                     </div>
                                 </div>
                                 <div class="ic-forget-password">
-                                    <a href="#">Forget Password</a>
+                                    <a href="{{route('user.forgetPassword')}}">Forget Password</a>
                                 </div>
                             </div>
                             </div>
@@ -67,10 +68,10 @@
                             <div class="ic-login-social text-center">
                                 <p>Or Log in With</p>
                                 <ul>
-                                    <li><a href="#"><i class="icofont-facebook"></i></a></li>
-                                    <li><a href="#"><i class="icofont-twitter"></i></a></li>
-                                    <li><a href="#"><i class="icofont-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                                    <li><a href="{{route('user.facebook')}}"><i class="icofont-facebook"></i></a></li>
+                                    <li><a href="{{route('user.twitter')}}"><i class="icofont-twitter"></i></a></li>
+                                    <li><a href="{{route('user.linkedin')}}"><i class="icofont-linkedin"></i></a></li>
+                                    <li><a href="{{route('user.instagram')}}"><i class="icofont-instagram"></i></a></li>
                                 </ul>
 
                             </div>

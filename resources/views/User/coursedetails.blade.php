@@ -14,9 +14,7 @@
                         <h2>Course Details</h2>
                         <div class="row ml-auto">
                             <p><a href="{{route('user.index')}}">Home</a></p>
-                            @foreach(Request::segments() as $segment)
-                                <p> <span>// </span><a href="{{$segment}}">{{$segment}}</a></p>
-                            @endforeach
+                            <p> <span>//<a href="{{route('user.courseDetails',$id)}}">Course Details</a></span></p>
                         </div>
 
                     </div>
@@ -40,20 +38,26 @@
                         </div>
                         <div class="author-duration-rating">
                             <p>{{$data->course_authorname}}</p>
-                            <p><span> {{$data->difficulty_level_name}} </span> / <span> {{$data->course_credithour}} Hours </span> / <span>{{$lecture}} Lectures </span> / <span>2 Exams</span></p>
+                            <p><span> {{$data->difficulty_level_name}} </span> / <span> {{$data->course_credithour}} Hours </span> / <span>{{$lecture}} Lectures </span> / <span>{{$exam}} Exams</span></p>
 
                         </div>
                         <div class="rating-enroll">
                             <div class="rating">
-                                <i class="icofont-star"></i>
-                                <i class="icofont-star"></i>
-                                <i class="icofont-star"></i>
-                                <i class="icofont-star"></i>
-                                <i class="icofont-star"></i>
-                                <p>4.5(3,547 Ratings)</p>
+                                    
+                                @if ($dataRatings[0]['ratings']!=0)
+                                    
+                                    @for($i=0;$i<$dataRatings[0]['ratings'];$i++)
+                                        <i class="icofont-star"></i>
+                                    @endfor
+                                    
+                                @else
+                                    <i class="icofont-star"></i>
+
+                                @endif
+                                <span style="color: white"><span class="color">{{$dataRatings[0]['ratings']}}</span> ({{$dataRatings[0]['totaluser']}} Ratings)</span>
                             </div>
                             <div class="enroll">
-                                <p>30,257 Students Enrolled</p>
+                                <p>{{$enroll}} Students Enrolled</p>
                             </div>
                         </div>
                         <div class="price">
@@ -108,11 +112,29 @@
 
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            @foreach ($courseModule as $item)
+                            @foreach ($courseModule as $key=>$item)
 
-                                <div class="tab-pane fade show active" id="{{$item->course_module_name}}" role="tabpanel" aria-labelledby="resposiable-tab">
-                                    {{$item->course_module_description}}
-                                </div>
+                                @if ($key==0)
+                                    <div class="tab-pane fade show active" id="{{$item->course_module_name}}" role="tabpanel" aria-labelledby="resposiable-tab">
+                                        
+                                        @if ($item->course_module_file)
+                                            <iframe src="{{asset('public/assets/CourseModule')}}/{{$item->course_module_file}}" frameborder="0"></iframe>
+                                        @endif
+                                        {!!$item->course_module_description!!}
+                                        
+                                    </div>
+                                @else
+                                    <div class="tab-pane fade" id="{{$item->course_module_name}}" role="tabpanel" aria-labelledby="resposiable-tab">
+                                        
+                                        @if ($item->course_module_file)
+                                            <iframe src="{{asset('public/assets/CourseModule')}}/{{$item->course_module_file}}" frameborder="0"></iframe>
+                                        @endif
+                                        {!!$item->course_module_description!!}
+                                        
+                                    </div>
+                                    
+                                @endif
+                                
                             @endforeach
                             <div class="ic-course-details-content2">
                                 
@@ -161,8 +183,16 @@
                         </div>
                     </div>
                     <div class="ic-certification-btn">
-                        <button type="button"><a href="#">Exam For Certification</a></button>
-                    </div>
+                        <button type="button"><a href="{{route('user.CourseCertificate',$id)}}">Exam For Certification</a></button>
+                    </div><br>
+                    @if(session('message'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Sorry!</strong> {{session('message')}}.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

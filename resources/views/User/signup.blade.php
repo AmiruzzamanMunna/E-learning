@@ -72,10 +72,10 @@
                             <div class="ic-login-social text-center">
                                 <p>Or Sign Up With</p>
                                 <ul>
-                                    <li><a href="#"><i class="icofont-facebook"></i></a></li>
-                                    <li><a href="#"><i class="icofont-twitter"></i></a></li>
-                                    <li><a href="#"><i class="icofont-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                                    <li><a href="{{route('user.facebook')}}"><i class="icofont-facebook"></i></a></li>
+                                    <li><a href="{{route('user.twitter')}}"><i class="icofont-twitter"></i></a></li>
+                                    <li><a href="{{route('user.linkedin')}}"><i class="icofont-linkedin"></i></a></li>
+                                    <li><a href="{{route('user.instagram')}}"><i class="icofont-instagram"></i></a></li>
                                 </ul>
 
                             </div>

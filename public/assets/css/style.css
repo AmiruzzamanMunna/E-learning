@@ -4032,7 +4032,7 @@ header {
     line-height: 24px; }
 .ic-demo-contact-area .ic-demo-contact-btn {
   margin: 60px 0px; }
-  .ic-demo-contact-area .ic-demo-contact-btn a {
+  .ic-demo-contact-area .ic-demo-contact-btn button {
     height: 50px;
     width: 100%;
     background: #333;
@@ -4047,9 +4047,67 @@ header {
     .ic-demo-contact-area .ic-demo-contact-btn a:focus {
       outline: none;
       box-shadow: none; }
-    .ic-demo-contact-area .ic-demo-contact-btn a:hover {
+    .ic-demo-contact-area .ic-demo-contact-btn button:hover {
       background: #FF6B1B; }
 .ic-demo-contact-area .form-group {
   margin-bottom: 20px; }
+  .ic-rating-popup {
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFFFFF;
+    -webkit-box-shadow: 11px 5px 15px 5px #F3F3F3;
+    box-shadow: 0px 4px 10px 3px #F3F3F3;
+    z-index: 99;
+    padding: 20px;
+  }
+  
+  .popup-rating .rate {
+    height: 46px;
+    padding: 10px 10px;
+  }
+  .popup-rating .rate:not(:checked) > input {
+    position: absolute;
+    top: -9999px;
+  }
+  .popup-rating .rate:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+  }
+  .popup-rating .rate:not(:checked) > label:before {
+    content: "★ ";
+  }
+  .popup-rating .rate > input:checked ~ label {
+    color: #ffc700;
+  }
+  .popup-rating .rate:not(:checked) > label:hover,
+  .popup-rating .rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+  }
+  .popup-rating .rate > input:checked + label:hover,
+  .popup-rating .rate > input:checked + label:hover ~ label,
+  .popup-rating .rate > input:checked ~ label:hover,
+  .popup-rating .rate > input:checked ~ label:hover ~ label,
+  .popup-rating .rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+  }
+  .popup-rating .rating-btn {
+    height: 48px;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    font-size: 16px;
+  }
+
+.ic-demo-video-right .video-overlay-play-button.is-hidden {
+    display: none;
+}
 
 /*# sourceMappingURL=style.css.map */

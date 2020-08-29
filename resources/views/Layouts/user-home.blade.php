@@ -97,7 +97,7 @@
                             
                         </li>
                         <li class="nav-item ic-left-item">
-                            <a class="nav-link" href="blog.html">Blog</a>
+                            <a class="nav-link" href="{{route('user.allBlog')}}">Blog</a>
                         </li>
                         <li class="nav-item ic-left-item">
                             <a class="nav-link" href="#">View Plans</a>
@@ -125,7 +125,7 @@
                             {{-- <li><a class="dropdown-item">Account</a></li> --}}
                             <li class="nav-item ic-start-learning user-nav-item">
                                 <a href="{{route('user.userProfile')}}"><img src="{{asset('public')}}/assets/images/menu-profile.png" class="img-fluid" alt="">
-                                    <span>Pamela Stone</span></a>
+                                    <span>{{$user->signup_name}}</span></a>
                                 <a href="" class="ic-favo-favo"><i class="far fa-heart"></i></a>
                                 <a href="" class="ic-notifi-favo"><i class="far fa-bell"></i></a>
                             </li>
@@ -157,13 +157,20 @@
 
     <!--Footer Area Start-->
 
-    <footer class="ic-footer-area" style="background-image: url({{asset('public')}}/assets/images/fotter-bg.jpg)">
+    <footer class="ic-footer-area" style="background-image: url({{asset('public/assets/Home')}}/{{$homePage->homePage_footer_image}})">
         <div class="container">
             <div class="row">
                 <div class=" col-md-4 ">
                     <div class="ic-footer-allience">
-                        <h2>Alliance <span>Academic</span> </h2>
-                        <p>Aliquam dapibus nunc tellus nitu rutrum turpisionpn rutrum actio. Morbi et eros a turpis vulpuscelerisque. Aenean ultricies risus diam, quis maximus </p>
+                        @php
+                            $string=$homePage->homePage_footer_title;
+                            $explode=explode(' ',$string);
+                            $explodeString1=$explode[0];
+                            $explodeString2=$explode[1];
+                       
+                        @endphp
+                        <h2>{{$explodeString1}} <span>{{$explodeString2}}</span> </h2>
+                        <p>{{$homePage->homePage_footer_paragraph}}</p>
                         <div class="social">
                             <ul class="nav">
                                 <li><a href="#"><i class="icofont-facebook"></i></a></li>
@@ -176,54 +183,65 @@
                         </div>
                     </div>
                 </div>
+                @foreach ($menues as $key=>$item)
 
-                <div class=" col-md-2 col-sm-4 offset-md-1">
-                    <div class="ic-footer-solution">
-                        <h2>Solution</h2>
-                        <ul>
-                            <li><a href="#">about us</a></li>
-                            <li><a href="#">careers</a></li>
-                            <li><a href="#">team </a></li>
-                            <li><a href="#">instructor</a></li>
-                            <li><a href="#">privacy policy</a></li>
-                            <li><a href="#">donor privacy policy</a></li>
-                            <li><a href="#">disclaimer</a></li>
-                            <li><a href="#">terms of use</a></li>
-                            <li><a href="#">media center</a></li>
-                        </ul>
+                @if ($key==0)
+                    
+                    <div class=" col-md-2 col-sm-4 offset-md-1">
+                        <div class="ic-footer-solution">
+                            <h2>{{$item->menu_name}}</h2>
+                            <ul>
+                                @foreach ($submenues as $subitem)
+                                    
+                                    @if ($subitem->menu_parent_id==$item->menu_id)
+                                        <li><a href="{{route('user.footerIndex',$subitem->menu_name)}}">{{$subitem->menu_name}}</a></li>
+                                    @endif
+                                
+                                @endforeach
+                               
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                @elseif($key==1)
 
-                <div class="col-md-2 col-sm-4 offset-md-1 col-pl-0">
-                    <div class="ic-footer-solution ic-partner">
-                        <h2>Resource</h2>
-                        <ul>
-                            <li><a href="#">download</a></li>
-                            <li><a href="#">event</a></li>
-                            <li><a href="#">teach </a></li>
-                            <li><a href="#">partners</a></li>
-                            <li><a href="#">affilate program</a></li>
-                            <li><a href="#">subscribe</a></li>
+                    <div class="col-md-2 col-sm-4 offset-md-1 col-pl-0">
+                        <div class="ic-footer-solution ic-partner">
+                            <h2>{{$item->menu_name}}</h2>
+                            <ul>
+                                @foreach ($submenues as $subitem)
 
-                        </ul>
+                                    @if ($subitem->menu_parent_id==$item->menu_id)
+                                        <li><a href="{{route('user.footerIndex',$subitem->menu_name)}}">{{$subitem->menu_name}}</a></li>
+                                    @endif
+                                
+                                @endforeach
+
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-2 col-sm-4">
-                    <div class="ic-footer-solution">
-                        <h2>Quick Links</h2>
-                        <ul>
-                            <li><a href="#">about us</a></li>
-                            <li><a href="#">careers</a></li>
-                            <li><a href="#">team </a></li>
-                            <li><a href="#">instructor</a></li>
-                            <li><a href="#">privacy policy</a></li>
-                            <li><a href="#">donor privacy policy</a></li>
-                            <li><a href="#">disclaimer</a></li>
-                            <li><a href="#">terms of use</a></li>
-                            <li><a href="#">media center</a></li>
-                        </ul>
+                
+                @else
+                    <div class="col-md-2 col-sm-4">
+                        <div class="ic-footer-solution">
+                            <h2>{{$item->menu_name}}</h2>
+                            <ul>
+                                @foreach ($submenues as $subitem)
+                                
+                                    @if ($subitem->menu_parent_id==$item->menu_id)
+                                        <li><a href="{{route('user.footerIndex',$subitem->menu_name)}}">{{$subitem->menu_name}}</a></li>
+                                    @endif
+                                
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
-                </div>
+
+                @endif
+
+                
+            
+            @endforeach
+        
             </div>
         </div>
         <div class="ic-footer-copyright text-center">

@@ -2,6 +2,17 @@
 @section('title')
     Lecture Add
 @endsection
+@section('script')
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>  
+  <script>
+  $(document).ready(function() {
+        $('.summernote').summernote({
+          height:400,
+        });
+    });
+</script>
+@endsection
 @section('content')
 
 <div class="container">
@@ -29,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Lecture Short Discription</label><br><br><br>
-                    <textarea id="udescription" name="udescription" cols="48" rows="10">{{old('udescription')}}</textarea>  
+                    <textarea class="summernote" id="udescription" name="udescription" cols="48" rows="10">{{old('udescription')}}</textarea>  
                                 
                 </div>
                 <div class="form-group">
@@ -49,11 +60,11 @@
                 </div>
                 <div class="form-group">
                     <label for="">Lecture Video Summary</label><br><br><br>
-                    <textarea id="udescription" name="videosummary" cols="48" rows="10">{{old('videosummary')}}</textarea>         
+                    <textarea class="summernote" id="udescription" name="videosummary" cols="48" rows="10">{{old('videosummary')}}</textarea>         
                 </div>
                 <div class="form-group">
                     <label for="">Lecture Video Excercise</label><br><br><br>
-                    <textarea name="videoexcercise" cols="48" rows="10">{{old('videoexcercise')}}</textarea>         
+                    <textarea class="summernote" name="videoexcercise" cols="48" rows="10">{{old('videoexcercise')}}</textarea>         
                 </div>
                 <div class="form-group">
                     <label for="">Lecture Pdf Title</label>
@@ -67,7 +78,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Lecture pdf Short Description</label><br><br><br>
-                    <textarea id="udescription" name="pdfdescription" cols="48" rows="10">{{old('pdfdescription')}}</textarea>         
+                    <textarea class="summernote" id="udescription" name="pdfdescription" cols="48" rows="10">{{old('pdfdescription')}}</textarea>         
                 </div>
                 <div class="form-group">
                     <label for="">Lecture Audio Title</label>
@@ -81,7 +92,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Lecture Audio Short Description</label><br><br><br>
-                    <textarea id="udescription" name="audiodescription" cols="48" rows="10">{{old('audiodescription')}}</textarea>         
+                    <textarea class="summernote" id="udescription" name="audiodescription" cols="48" rows="10">{{old('audiodescription')}}</textarea>         
                 </div>
                 <div class="form-group">
                     <label for="">Online Exam</label>

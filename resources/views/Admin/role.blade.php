@@ -354,9 +354,18 @@
 
                     html+='<div class="card">';
                     html+='<div class="card-header" id="headingOne">';
+                    html+='<div class="row">';
+                    html+='<div class="col-md-3"';
                     html+='<h5 class="mb-0">';
                     html+='<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne'+$i+'" aria-expanded="true" aria-controls="collapseOne">'+data.permission[$i].permission_name+'</button>';
                     html+='</h5>';
+                    html+='</div>';
+                    html+='<div class="col-md-3 ml-auto"';
+                    html+='<h5 class="mb-0">';
+                    html+='<input type="checkbox" onchange="propChecked('+$i+')" id="propcheck'+$i+'" class="">';
+                    html+='</h5>';
+                    html+='</div>';
+                    html+='</div>';
                     html+='</div>';
 
                     for($j=0;$j<data.subPermission.length;$j++){
@@ -384,7 +393,7 @@
                             if(id!=data.subPermission[$j].permission_id){
 
                                 html+='<div id="collapseOne'+$i+'" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">'; 
-                                html+='<div class="card-body"><input type="checkbox" name="per[]" id="per[]" value="'+data.subPermission[$j].permission_id+'">'+data.subPermission[$j].permission_name; 
+                                html+='<div class="card-body"><input type="checkbox" name="per[]" id="per'+$i+'" value="'+data.subPermission[$j].permission_id+'">'+data.subPermission[$j].permission_name; 
                                 html+='</div>'; 
                                 html+='</div>';
 
@@ -451,6 +460,13 @@
         }
 
         
+    }
+    function propChecked(id){
+
+        console.log(id);
+        $('#per'+id).prop('checked',true);
+        var val=$('#per'+id).val();
+        console.log(val);
     }
   </script>
 

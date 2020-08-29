@@ -16,12 +16,50 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+Route::get('/clear', function() {
+    
+    Artisan::call('optimize:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    return 'clear';
+});
+
 Route::get('/','User\UserController@index')->name('user.index');
 Route::get('/signUp','User\SignUpController@signUp')->name('user.signUp');
 Route::get('/signUpStore','User\SignUpController@signUpStore')->name('user.signUpStore');
 
+// Forget Password
+
+Route::get('/forgetPassword','User\ForgetPasswordController@forgetPassword')->name('user.forgetPassword');
+Route::post('/forgetPassword','User\ForgetPasswordController@sendMail')->name('user.sendMail');
+Route::get('/getUserPasswordView/{token}','User\ForgetPasswordController@getUserPasswordView')->name('user.getUserPasswordView');
+Route::post('/getUserPasswordView/{token}','User\ForgetPasswordController@resetPassword')->name('user.resetPassword');
+
+// FaceBook sign up
+
+Route::get('login/facebook', 'User\FaceboolController@redirectToProvider')->name('user.facebook');
+Route::get('login/facebook/callback', 'User\FaceboolController@handleProviderCallback');
+
+// Twitter Signup
+
+Route::get('login/twitter', 'User\TwitterController@redirectToProvider')->name('user.twitter');
+Route::get('login/twitter/callback', 'User\TwitterController@handleProviderCallback');
+
+// Linkedin Signup
+
+Route::get('login/linkedin', 'User\LinkedinController@redirectToProvider')->name('user.linkedin');
+Route::get('login/linkedin/callback', 'User\LinkedinController@handleProviderCallback');
+
+// Instagram Signup
+
+Route::get('login/instagram', 'User\InstagramController@redirectToProvider')->name('user.instagram');
+Route::get('login/instagram/callback', 'User\InstagramController@handleProviderCallback');
+
 Route::get('/login','User\LoginController@login')->name('user.login');
 Route::post('/login','User\LoginController@loginCheck')->name('user.loginCheck');
+
 
 
 
@@ -32,15 +70,19 @@ Route::get('/courseCategory/{id}','User\CourseCategoryController@courseCategory'
 
 Route::get('/allCourse','User\CourseController@allCourse')->name('user.allCourse');
 Route::get('/courseDetails/{id}','User\CourseController@courseDetails')->name('user.courseDetails');
-Route::get('/courseDemo/{id}','User\CourseController@courseDemo')->name('user.courseDemo');
+Route::get('/courseContent/{id}','User\CourseController@courseDemo')->name('user.courseDemo');
+
+// Course Search
+Route::get('/courseSearch','User\CourseController@courseSearch')->name('user.courseSearch');
 
 // Course Demo Files
 
-Route::get('/courseDemoFile/{course_id}/{id}/{checkid}','User\CourseController@courseDemoFile')->name('user.courseDemoFile');
+Route::get('/courseDemoFile/{course_id}/{lectureid}/{checkid}','User\CourseController@courseDemoFile')->name('user.courseDemoFile');
 
 
 // Blog 
 
+Route::get('/allBlog','User\BlogController@allBlog')->name('user.allBlog');
 Route::get('/blogdetails/{id}','User\BlogController@blogDetails')->name('user.blogDetails');
 
 
@@ -50,6 +92,19 @@ Route::get('/cartAdd','User\CartController@cartAdd')->name('user.cartAdd');
 // Wislist Add
 
 Route::get('/wishListAdd','User\WishListController@wishListAdd')->name('user.wishListAdd');
+
+// Filering
+
+Route::get('/courseFiltering','User\CourseController@courseFiltering')->name('user.courseFiltering');
+Route::get('/skillFiltering','User\CourseController@skillFiltering')->name('user.skillFiltering');
+Route::get('/priceFiltering','User\CourseController@priceFiltering')->name('user.priceFiltering');
+Route::get('/topicsFiltering','User\CourseController@topicsFiltering')->name('user.topicsFiltering');
+Route::get('/autorFiltering','User\CourseController@autorFiltering')->name('user.autorFiltering');
+Route::get('/ratingsFiltering','User\CourseController@ratingsFiltering')->name('user.ratingsFiltering');
+
+// Footer Route
+
+
 
 Route::group(['middleware' => 'userSess'], function () {
     
@@ -86,14 +141,53 @@ Route::group(['middleware' => 'userSess'], function () {
     // Course Enroll
 
     Route::get('/enrollHistory','User\ProfileController@enrollHistory')->name('user.enrollHistory');
+
+    // Enroll Filtering
+    Route::get('/keyWordFiltering','User\ProfileController@keyWordFiltering')->name('user.keyWordFiltering');
+    Route::get('/categoryFiltering','User\ProfileController@categoryFiltering')->name('user.categoryFiltering');
+
+    
+
+    // Answer Submit
+
+    Route::get('/submitAnswer','User\ExamController@submitAnswer')->name('user.submitAnswer');
+
+    // Submit Form
+
+    Route::post('/formInsert','User\UserSubmitFileController@formInsert')->name('user.formInsert');
+
+    // Submitted form
+     
+    Route::get('/submittedForm','User\ProfileController@submittedForm')->name('user.submittedForm');
+
+    // Ratings
+
+    Route::get('/getRatings','User\RatingsController@getRatings')->name('user.getRatings');
+    Route::get('/ratingsInsert','User\RatingsController@ratingsInsert')->name('user.ratingsInsert');
+
+    // Notifications
+    Route::get('/notificationData','User\NotificationController@notificationData')->name('user.notificationData');
+    Route::get('/deleteNotification','User\NotificationController@deleteNotification')->name('user.deleteNotification');
+
+    // Course Certificate
+
+    Route::get('/CourseCertificate/{id}','User\CertificateController@CourseCertificate')->name('user.CourseCertificate');
 });
 
 
 
 // Admin Panel Starts from here
 
+
+// Admin Forget password
+
+Route::get('/admin/forgetPassword','Admin\ForgetPasswordController@forgetPassword')->name('admin.forgetPassword');
+Route::post('/admin/forgetPassword','Admin\ForgetPasswordController@sendMail')->name('admin.sendMail');
+Route::get('/admin/getUserPasswordView/{token}','Admin\ForgetPasswordController@getUserPasswordView')->name('admin.getUserPasswordView');
+Route::post('/admin/getUserPasswordView/{token}','Admin\ForgetPasswordController@resetPassword')->name('admin.resetPassword');
+
 Route::get('/admin/login','Admin\LoginController@loginAdmin')->name('admin.loginAdmin');
-Route::get('/admin/loginAdminCheck','Admin\LoginController@loginAdminCheck')->name('admin.loginAdminCheck');
+Route::post('/admin/login','Admin\LoginController@loginAdminCheck')->name('admin.loginAdminCheck');
 
 
 Route::group(['middleware'=>['adminSess'],'prefix' => 'admin'], function () {
@@ -208,6 +302,15 @@ Route::group(['middleware'=>['adminSess'],'prefix' => 'admin'], function () {
     Route::get('/activeCourse/{id}','Admin\CourseOrderController@activeCourse')->name('admin.activeCourse');
     Route::get('/deActiveCourse/{id}','Admin\CourseOrderController@deActiveCourse')->name('admin.deActiveCourse');
 
+    // Exam
+
+    Route::get('/exam/{id}','Admin\ExamController@examIndex')->name('admin.examIndex');
+    Route::get('/examAdd/{id}','Admin\ExamController@examAdd')->name('admin.examAdd');
+    Route::post('/examAdd/{id}','Admin\ExamController@examAddInsert')->name('admin.examAddInsert');
+    Route::get('/examEdit/{id}','Admin\ExamController@examEdit')->name('admin.examEdit');
+    Route::post('/examEdit/{id}','Admin\ExamController@examEditUpdate')->name('admin.examEditUpdate');
+    Route::get('/deleteExam/{id}','Admin\ExamController@deleteExam')->name('admin.deleteExam');
+
 
     // Blog 
 
@@ -217,5 +320,44 @@ Route::group(['middleware'=>['adminSess'],'prefix' => 'admin'], function () {
     Route::get('/blogEdit/{id}','Admin\BlogController@blogEdit')->name('admin.blogEdit');
     Route::post('/blogEdit/{id}','Admin\BlogController@blogUpdate')->name('admin.blogUpdate');
     Route::get('/blogDelete/{id}','Admin\BlogController@blogDelete')->name('admin.blogDelete');
+
+    // Settings - Login page
+
+    Route::get('/loginPageDetails','Admin\AdminLoginPageController@loginPageDetails')->name('admin.loginPageDetails');
+    Route::get('/loginPageAdd','Admin\AdminLoginPageController@loginPageAdd')->name('admin.loginPageAdd');
+    Route::post('/loginPageAdd','Admin\AdminLoginPageController@loginPageInsert')->name('admin.loginPageInsert');
+
+    Route::get('/loginPageEdit/{id}','Admin\AdminLoginPageController@loginPageEdit')->name('admin.loginPageEdit');
+    Route::post('/loginPageEdit/{id}','Admin\AdminLoginPageController@loginPageUpdate')->name('admin.loginPageUpdate');
+    Route::get('/loginPageDelete/{id}','Admin\AdminLoginPageController@loginPageDelete')->name('admin.loginPageDelete');
+
+    // Home Page
+
+    Route::get('/homePage','Admin\HomePageController@homePage')->name('admin.homePage');
+    Route::get('/homeAdd','Admin\HomePageController@homeAdd')->name('admin.homeAdd');
+    Route::post('/homeAdd','Admin\HomePageController@homeAddStore')->name('admin.homeAddStore');
+    Route::get('/homePageEdit/{id}','Admin\HomePageController@homePageEdit')->name('admin.homePageEdit');
+    Route::post('/homePageEdit/{id}','Admin\HomePageController@homePageEditUpdate')->name('admin.homePageEditUpdate');
+    Route::get('/homePageDelete/{id}','Admin\HomePageController@homePageDelete')->name('admin.homePageDelete');
+
+    // Menue 
+
+    Route::get('/menueList','Admin\MenuesController@menueList')->name('admin.menueList');
+    Route::get('/menueAdd','Admin\MenuesController@menueAdd')->name('admin.menueAdd');
+    Route::post('/menueAdd','Admin\MenuesController@menueAddStore')->name('admin.menueAddStore');
+    Route::get('/menueEdit/{id}','Admin\MenuesController@menueEdit')->name('admin.menueEdit');
+    Route::post('/menueEdit/{id}','Admin\MenuesController@menueUpdate')->name('admin.menueUpdate');
+    Route::get('/menueDelete/{id}','Admin\MenuesController@menueDelete')->name('admin.menueDelete');
+
+    // Page
+
+    Route::get('/pagelist','Admin\MenuesController@pageList')->name('admin.pageList');
+    Route::get('/pageAdd','Admin\MenuesController@pageAdd')->name('admin.pageAdd');
+    Route::post('/pageAdd','Admin\MenuesController@pageAddStore')->name('admin.pageAddStore');
+
+    Route::get('/pageEdit/{id}','Admin\MenuesController@pageEdit')->name('admin.pageEdit');
+    Route::post('/pageEdit/{id}','Admin\MenuesController@pageEditUpdate')->name('admin.pageEditUpdate');
+    Route::get('/pageDelete/{id}','Admin\MenuesController@pageDelete')->name('admin.pageDelete');
 });
 
+Route::get('/{any}','User\FooterController@footerIndex')->name('user.footerIndex');

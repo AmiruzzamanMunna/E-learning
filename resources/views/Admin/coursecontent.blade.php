@@ -44,7 +44,7 @@
                                 <td>{{$item->course_content_title}}</td>
                                 <td>{{$item->course_name}}</td>
                                 <td>
-                                    <a href=""><i class="fas fa-stream"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="{{route('admin.examIndex',$item->course_content_id)}}"><i class="fas fa-stream"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                                     @if (Session::has('coursecontentedit') && Session::has('coursecontentdelete'))
                                         <a href="{{route('admin.lectureEdit',$item->course_content_id)}}"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="return confirm('Are You Sure!!')" href="{{route('admin.lectureDelete',$item->course_content_id)}}"><i class="fas fa-trash"></i></a>
                                     @elseif(Session::has('coursecontentedit'))

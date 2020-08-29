@@ -38,6 +38,16 @@
                                
                 </div>
                 <div class="form-group">
+                    <label for="">Category</label>
+                    <select name="category_id" id="" class="form-control">
+                        @foreach ($category as $item)
+                            <option value="{{$item->course_category_id}}">{{$item->course_category_name}}</option> 
+                        @endforeach
+                        
+                    </select>  
+                               
+                </div>
+                <div class="form-group">
                     <label for="">Image</label>
                     <input type="file" class="form-control" name="file">               
                 </div>

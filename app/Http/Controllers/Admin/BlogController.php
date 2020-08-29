@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Blog;
+use App\CourseCategory;
 
 class BlogController extends Controller
 {
@@ -16,7 +17,10 @@ class BlogController extends Controller
     }
     public function blogAdd(Request $request)
     {
-        return view('Blog.blogadd');
+        $category=CourseCategory::all();
+    
+        return view('Blog.blogadd')
+                ->with('category',$category);
     }
     public function blogInsert(Request $request)
     {
@@ -27,6 +31,7 @@ class BlogController extends Controller
         ]);
         $data=new Blog();
         $data->blog_title=$request->title;
+        $data->blog_category_id=$request->category_id;
         $data->blog_blooger_name=$request->authorname;
         $data->blog_details=$request->description;
         if ($request->hasFile('file')) {
@@ -45,13 +50,16 @@ class BlogController extends Controller
     public function blogEdit(Request $request,$id)
     {
         $data=Blog::where('blog_id',$id)->first();
+        $category=CourseCategory::all();
         return view('Blog.blogedit')
+                ->with('category',$category)
                 ->with('data',$data);
     }
     public function blogUpdate(Request $request,$id)
     {
         $data=Blog::where('blog_id',$id)->first();
         $data->blog_title=$request->title;
+        $data->blog_category_id=$request->category_id;
         $data->blog_blooger_name=$request->authorname;
         $data->blog_details=$request->description;
         if ($request->hasFile('file')) {

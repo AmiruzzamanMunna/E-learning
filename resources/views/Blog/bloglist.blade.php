@@ -12,9 +12,9 @@
             <div class="row">
                 <div class="col-md-6">Blog</div>
                 <div class="col-md-1 ml-auto">
-                    {{-- @if (Session::has('moduleadd')) --}}
+                    @if (Session::has('Blogadd'))
                         <a href="{{route('admin.blogAdd')}}"><i class="fas fa-plus"></i></a> 
-                    {{-- @endif --}}
+                    @endif
                     
                 </div>
         </div>
@@ -44,7 +44,16 @@
                                 <td><img src="{{asset('public/assets/Blog')}}/{{$item->blog_image}}" height="150px" width="100px" alt=""></td>
                                 <td>{{$item->blog_title}}</td>
                                 <td>{{$item->blog_blooger_name}}</td>
-                                <td><a href="{{route('admin.blogEdit',$item->blog_id)}}"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="return confirm('Are You Sure!!')" href="{{route('admin.blogDelete',$item->blog_id)}}"><i class="fas fa-trash"></i></a></td>  
+                                <td>
+                                    @if (Session::has('Blogedit'))
+                                        <a href="{{route('admin.blogEdit',$item->blog_id)}}"><i class="fas fa-edit"></i></a>
+                                    @endif
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    @if (Session::has('Blogdelete'))
+                                    <a onclick="return confirm('Are You Sure!!')" href="{{route('admin.blogDelete',$item->blog_id)}}"><i class="fas fa-trash"></i></a>
+                                    @endif
+                                    
+                                </td>  
                             </tr>
                         @endforeach
                     </tbody>
@@ -54,94 +63,7 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Course Add</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
 
-            
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="insertCourse()">Save changes</button>
-        </div>
-      </div>
-    </div>
-</div>
-<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Course Update</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
-            <div class="form-group">
-                <label for="">Course Name</label>
-                <input type="text" name="catname" id="ucoursename" class="form-control">   
-                <input type="hidden" name="catname" id="id" class="form-control">   
-                            
-            </div>
-            <div class="form-group">
-                <label for="">Image</label>
-                <input type="file" name="" id="uimage" class="form-control"> 
-                <img height="200px" width="200px" alt="" id="usrc1">                  
-            </div>
-            <div class="form-group">
-                <label for="">Sub-Category</label>
-                <select class="form-control" id="usubCat">
-                    
-                </select> 
-                               
-            </div>
-            <div class="form-group">
-                <label for="">Author Name</label>
-                <input type="text" name="catname" id="uauthorname" class="form-control">   
-                          
-            </div>
-            <div class="form-group">
-                <label for="">Credit Hour</label>
-                <input type="text" name="catname" id="ucredithour" class="form-control">   
-                         
-            </div>
-            <div class="form-group">
-                <label for="">Course Description</label><br><br>
-                <textarea name="" id="ucoursedescription" cols="48" rows="10"></textarea>  
-                         
-            </div>
-            <div class="form-group">
-                <label for="">Course Difficulty Level</label>
-                <select name="" id="ulevel" class="form-control">        
-            
-                </select>  
-                       
-            </div>
-            <div class="form-group">
-                <label for="">Course Requirement</label><br><br>
-                <textarea name="" id="ucourserequire" cols="48" rows="10"></textarea>              
-            </div>
-            <div class="form-group">
-                <label for="">Course price</label>
-                <input type="text" name="catname" id="ucourseprice" class="form-control">               
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="editCourseUpdate()">Save changes</button>
-        </div>
-      </div>
-    </div>
-</div>
 
 <script>
 

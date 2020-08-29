@@ -41,7 +41,7 @@
                         
                 @if (Session::has('modulelist'))
 
-                    <a href="{{route('admin.moduleList',$id)}}" class="btn btn-success">Module</a>
+                    <a href="{{route('admin.moduleList',$id)}}" class="btn btn-success">Content Details</a>
                     
                 @endif
                 @if (Session::has('coursecontentlist'))

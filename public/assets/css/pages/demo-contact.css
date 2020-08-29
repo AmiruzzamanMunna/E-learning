@@ -94,6 +94,25 @@
       box-shadow: none; }
     .ic-demo-contact-area .ic-demo-contact-btn a:hover {
       background: #FF6B1B; }
+.ic-demo-contact-area .ic-demo-contact-btn {
+  margin: 60px 0px; }
+  .ic-demo-contact-area .ic-demo-contact-btn button {
+    height: 50px;
+    width: 100%;
+    background: #333;
+    border-radius: 5px;
+    color: #fff;
+    padding: 0px;
+    line-height: 48px;
+    font-family: 'Assistant', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out; }
+    .ic-demo-contact-area .ic-demo-contact-btn button:focus {
+      outline: none;
+      box-shadow: none; }
+    .ic-demo-contact-area .ic-demo-contact-btn button:hover {
+      background: #FF6B1B; }
 .ic-demo-contact-area .form-group {
   margin-bottom: 20px; }
 

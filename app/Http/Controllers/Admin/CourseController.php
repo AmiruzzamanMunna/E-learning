@@ -4,11 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\LectureUpload;
 use App\Course;
 use App\CourseCategory;
 use App\CourseContent;
 use App\LectureFiles;
 use App\Coupon;
+use App\CourseOrder;
+use App\UserList;
+use App\Notification;
 use DB;
 
 
@@ -278,6 +283,10 @@ class CourseController extends Controller
     }
     public function lectureAddInsert(Request $request,$id)
     {
+
+        ini_set("memory_limit", "200M");
+        ini_set('post_max_size', '200M');
+        ini_set('upload_max_filesize', '200M');
         
         $data= new CourseContent();
         $data->course_content_title=$request->contentname;
@@ -317,7 +326,7 @@ class CourseController extends Controller
         if ($request->hasFile('lectureaudio')) {
 
             $image = $request->file('lectureaudio');
-            $user_image = time().'course-video-1.'.$image->getClientOriginalExtension();
+            $user_image = time().'course-audio-1.'.$image->getClientOriginalExtension();
             $location = public_path('assets/lecture');
             $image->move($location, $user_image);
             $data->course_content_audio = $user_image;
@@ -328,6 +337,25 @@ class CourseController extends Controller
         $data->course_content_contactform=$request->contactform;
         $data->save();
         $request->session()->flash('message','Data Inserted');
+
+        $getUser=CourseOrder::where('order_course_id',$id)->get();
+
+        if(count($getUser)>0){
+
+            foreach($getUser as $eachuser){
+
+                $userMail=UserList::where('signup_id',$eachuser->order_user_id)->first();
+                Mail::to($userMail->signup_email)->send(new LectureUpload($data));
+
+                $notification=new Notification();
+                $notification->notification_course_id=$id;
+                $notification->notification_lecture_id=$data->course_content_id;
+                $notification->notification_user_id=$eachuser->order_user_id;
+                $notification->save();
+            }
+
+        }
+        
         return redirect()->route('admin.courseContentIndex',$id);
     }
     public function lectureEdit(Request $request,$id)

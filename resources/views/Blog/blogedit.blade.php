@@ -38,6 +38,24 @@
                                
                 </div>
                 <div class="form-group">
+                    <label for="">Category</label>
+                    <select name="category_id" id="" class="form-control">
+                        @foreach ($category as $item)
+                        @if ($data->blog_category_id==$item->course_category_id)
+
+                            <option value="{{$item->course_category_id}}" selected>{{$item->course_category_name}}</option> 
+                        @else
+
+                            <option value="{{$item->course_category_id}}">{{$item->course_category_name}}</option> 
+                            
+                        @endif
+                            
+                        @endforeach
+                        
+                    </select>  
+                               
+                </div>
+                <div class="form-group">
                     <label for="">Image</label>
                     <input type="file" class="form-control" name="file">               
                 </div>

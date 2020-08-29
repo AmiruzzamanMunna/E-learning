@@ -87,9 +87,34 @@
                             <li>
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-blog"></i><span>Blog <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                                 <ul class="submenu">
-                                    {{-- @if (Session::has('couponlist')) --}}
+                                    @if (Session::has('Bloglist'))
                                         <li><a href="{{route('admin.blogList')}}">Blog Page</a></li>
-                                    {{-- @endif --}}
+                                    @endif
+                                
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-blog"></i><span>Menues <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <ul class="submenu">
+                                    @if (Session::has('Bloglist'))
+                                        <li><a href="{{route('admin.menueList')}}">Menue Page</a></li>
+                                        <li><a href="{{route('admin.pageList')}}">Pages</a></li>
+                                    @endif
+                                
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-cog"></i><span>Settings <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <ul class="submenu">
+                                    @if (Session::has('loginlist'))
+                                        <li><a href="{{route('admin.loginPageDetails')}}">Login Page</a></li>
+                                    @endif
+                                
+                                </ul>
+                                <ul class="submenu">
+                                    @if (Session::has('homepagelist'))
+                                        <li><a href="{{route('admin.homePage')}}">Home Page</a></li>
+                                    @endif
                                 
                                 </ul>
                             </li>
