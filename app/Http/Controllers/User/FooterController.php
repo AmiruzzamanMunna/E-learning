@@ -37,7 +37,7 @@ class FooterController extends Controller
         $menues=Menues::where('menu_parent_id',0)->get();
         $submenues=Menues::where('menu_parent_id','>',0)->get();
         $user=UserList::where('signup_id',$request->session()->get('loggedUser'))->first();
-
+        
         return view('User.allpages')
                 ->with('user',$user)
                 ->with('menues',$menues)
