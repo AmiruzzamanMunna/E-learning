@@ -13,7 +13,9 @@ use App\CourseOrder;
 use App\UserList;
 use App\HomePage;
 use App\Menues;
+use App\Payment;
 use DB;
+use Stripe;
 
 class CheckOutController extends Controller
 {
@@ -50,6 +52,7 @@ class CheckOutController extends Controller
     {
         $course_id=$request->course_id;
         $course_price=$request->course_price;
+       
 
         foreach($course_id as $key=>$val){
 
@@ -61,6 +64,13 @@ class CheckOutController extends Controller
             $data->order_status=0;
             $data->save();
         }
+
+        $payment= new Payment();
+        $payment->user_id=$request->session()->get('loggedUser');
+        $payment->amount=array_sum($course_price);
+        $payment->payment_status='given';
+        $payment->currency='USD';
+        $payment->save();
 
         Cart::where('cart_user_id',$request->session()->get('loggedUser'))->delete();
 

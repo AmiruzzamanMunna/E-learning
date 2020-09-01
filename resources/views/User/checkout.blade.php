@@ -2,6 +2,9 @@
 @section('title')
     Check Out
 @endsection
+@section('js')
+    <script src="https://js.stripe.com/v3/"></script>
+@endsection
 @section('container')
 
 <!--Checkout  Area Start-->
@@ -177,7 +180,57 @@
 </section>
 
 
+<div id="paypal-button"></div>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+  paypal.Button.render({
+    // Configure environment
+    env: 'sandbox',
+    client: {
+      sandbox: 'ASqMGS7jkkXVeUoOJ72VTk6srgH_Ug0b1Ygg7nZ8Zu0UgMEr9_1S4NpJyMecPP6ogtZ7sK_LLE7uFDRv',
+      production: 'demo_production_client_id'
+    },
+    // Customize button (optional)
+    locale: 'en_US',
+    style: {
+      size: 'small',
+      color: 'gold',
+      shape: 'pill',
+    },
 
+    // Enable Pay Now checkout flow (optional)
+    commit: true,
+
+    // Set up a payment
+    payment: function(data, actions) {
+
+        var course_price=$("input[name='course_price[]']").map(function () {return $(this).val();}).get();
+
+        var total=0;
+        for($i=0;$i<course_price.length;$i++){
+
+            total+=course_price[$i]<<0;
+        }
+        
+      return actions.payment.create({
+        transactions: [{
+          amount: {
+            total: total,
+            currency: 'USD'
+          }
+        }]
+      });
+    },
+    // Execute the payment
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+        // Show a confirmation message to the buyer
+        courseOrder();
+      });
+    }
+  }, '#paypal-button');
+
+</script>
 
 <script>
 
@@ -298,6 +351,8 @@
                 course_price:course_price,
             },
             success:function(data){
+
+                console.log(data);
                 
                 if(data.status=='success'){
 
@@ -308,8 +363,12 @@
 
                 console.log(error);
             }
-        })
+        });
+
+
     }
+
+    
     
 </script>
 

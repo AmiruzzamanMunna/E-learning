@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{asset('public')}}/assets/css/media.css">
     <script src="{{asset('public/assets/js/jquery.min.js') }}" type="text/javascript"></script>
     @yield('css')
+    @yield('js')
     
 
 
